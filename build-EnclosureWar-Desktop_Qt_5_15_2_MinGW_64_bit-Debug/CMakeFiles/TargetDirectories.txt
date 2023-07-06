@@ -1,0 +1,8 @@
+D:/Subjects/C++Projects/EnclosureWar/build-EnclosureWar-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/EnclosureWar.dir
+D:/Subjects/C++Projects/EnclosureWar/build-EnclosureWar-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+D:/Subjects/C++Projects/EnclosureWar/build-EnclosureWar-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+D:/Subjects/C++Projects/EnclosureWar/build-EnclosureWar-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+D:/Subjects/C++Projects/EnclosureWar/build-EnclosureWar-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/install.dir
+D:/Subjects/C++Projects/EnclosureWar/build-EnclosureWar-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+D:/Subjects/C++Projects/EnclosureWar/build-EnclosureWar-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+D:/Subjects/C++Projects/EnclosureWar/build-EnclosureWar-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/EnclosureWar_autogen.dir

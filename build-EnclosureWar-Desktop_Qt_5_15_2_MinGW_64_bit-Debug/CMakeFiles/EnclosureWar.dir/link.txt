@@ -1,0 +1,3 @@
+D:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f CMakeFiles\EnclosureWar.dir/objects.a
+D:\Qt\Tools\mingw810_64\bin\ar.exe qc CMakeFiles\EnclosureWar.dir/objects.a @CMakeFiles\EnclosureWar.dir\objects1.rsp
+D:\Qt\Tools\mingw810_64\bin\g++.exe -DQT_QML_DEBUG -g -mwindows -Wl,--whole-archive CMakeFiles\EnclosureWar.dir/objects.a -Wl,--no-whole-archive -o EnclosureWar.exe -Wl,--out-implib,libEnclosureWar.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\EnclosureWar.dir\linklibs.rsp
