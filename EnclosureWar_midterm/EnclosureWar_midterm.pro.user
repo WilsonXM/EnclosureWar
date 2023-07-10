@@ -81,6 +81,9 @@
     <valuelist type="QVariantList" key="ClangTools.SuppressedDiagnostics"/>
     <value type="bool" key="ClangTools.UseGlobalSettings">true</value>
    </valuemap>
+   <valuemap type="QVariantMap" key="CppEditor.QuickFix">
+    <value type="bool" key="UseGlobalSettings">true</value>
+   </valuemap>
   </valuemap>
  </data>
  <data>
@@ -236,6 +239,7 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/Subjects/C++Projects/EnclosureWar/EnclosureWar_midterm/EnclosureWar_midterm.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/Subjects/C++Projects/EnclosureWar/EnclosureWar_midterm/EnclosureWar_midterm.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
@@ -243,7 +247,9 @@
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">D:/Subjects/C++Projects/EnclosureWar/build-EnclosureWar_midterm-Desktop_Qt_5_15_2_MinGW_64_bit-Debug</value>
+
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
