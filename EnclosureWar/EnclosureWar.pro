@@ -10,9 +10,9 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Game.cpp \
-    GameWidget.cpp \
-    Paint.cpp \
+    view_model/Game.cpp \
+    view_model/GameWidget.cpp \
+    model/Paint.cpp \
     common/Player.cpp \
     main.cpp \
     view/initwindow.cpp \
@@ -21,9 +21,9 @@ SOURCES += \
 HEADERS += \
     common/Block.h \
     common/Color.h \
-    Game.h \
-    GameWidget.h \
-    Paint.h \
+    view_model/Game.h \
+    view_model/GameWidget.h \
+    model/Paint.h \
     common/Player.h \
     view/initwindow.h \
     view/mainwindow.h

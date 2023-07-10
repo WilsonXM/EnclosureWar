@@ -18,8 +18,6 @@ public:
     ~initwindow();
 
 private slots:
-
-
     void on_commitButton_clicked();
 
 private:

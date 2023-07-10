@@ -25,12 +25,12 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_0">
      <item>
-      <widget class="GameMap" name="widgetGameMap" native="true"/>
+      <widget class="GameWidget" name="gamewidget" native="true"/>
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QLabel" name="clock_2">
+        <widget class="QLabel" name="clock">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -51,19 +51,6 @@
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;60&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_1">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_1">
@@ -236,19 +223,6 @@
         </layout>
        </item>
        <item>
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
         <widget class="QPushButton" name="stopButton">
          <property name="minimumSize">
           <size>
@@ -295,9 +269,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>GameMap</class>
+   <class>GameWidget</class>
    <extends>QWidget</extends>
-   <header location="global">GameMap.h</header>
+   <header location="global">view_model/GameWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
