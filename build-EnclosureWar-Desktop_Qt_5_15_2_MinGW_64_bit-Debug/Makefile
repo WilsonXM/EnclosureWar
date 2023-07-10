@@ -244,6 +244,7 @@ Makefile: ../EnclosureWar/EnclosureWar.pro ../../../../Qt/5.15.2/mingw81_64/mksp
 		../../../../Qt/5.15.2/mingw81_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.15.2/mingw81_64/mkspecs/win32-g++/qmake.conf \
 		../../../../Qt/5.15.2/mingw81_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt/5.15.2/mingw81_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.15.2/mingw81_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/5.15.2/mingw81_64/mkspecs/features/default_pre.prf \
@@ -268,12 +269,14 @@ Makefile: ../EnclosureWar/EnclosureWar.pro ../../../../Qt/5.15.2/mingw81_64/mksp
 		../../../../Qt/5.15.2/mingw81_64/mkspecs/features/yacc.prf \
 		../../../../Qt/5.15.2/mingw81_64/mkspecs/features/lex.prf \
 		../EnclosureWar/EnclosureWar.pro \
+		../../../../Qt/5.15.2/mingw81_64/lib/Qt5Multimedia.prl \
 		../../../../Qt/5.15.2/mingw81_64/lib/Qt5Widgets.prl \
 		../../../../Qt/5.15.2/mingw81_64/lib/Qt5Gui.prl \
+		../../../../Qt/5.15.2/mingw81_64/lib/Qt5Network.prl \
 		../../../../Qt/5.15.2/mingw81_64/lib/Qt5Core.prl \
 		../../../../Qt/5.15.2/mingw81_64/lib/qtmain.prl \
-		.qmake.stash \
-		../../../../Qt/5.15.2/mingw81_64/mkspecs/features/build_pass.prf
+		../../../../Qt/5.15.2/mingw81_64/mkspecs/features/build_pass.prf \
+		../EnclosureWar/source/resource.qrc
 	$(QMAKE) -o Makefile ..\EnclosureWar\EnclosureWar.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../../../Qt/5.15.2/mingw81_64/mkspecs/features/spec_pre.prf:
 ../../../../Qt/5.15.2/mingw81_64/mkspecs/qdevice.pri:
@@ -449,6 +452,7 @@ Makefile: ../EnclosureWar/EnclosureWar.pro ../../../../Qt/5.15.2/mingw81_64/mksp
 ../../../../Qt/5.15.2/mingw81_64/mkspecs/features/qt_config.prf:
 ../../../../Qt/5.15.2/mingw81_64/mkspecs/win32-g++/qmake.conf:
 ../../../../Qt/5.15.2/mingw81_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt/5.15.2/mingw81_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/5.15.2/mingw81_64/mkspecs/features/toolchain.prf:
 ../../../../Qt/5.15.2/mingw81_64/mkspecs/features/default_pre.prf:
@@ -473,12 +477,14 @@ Makefile: ../EnclosureWar/EnclosureWar.pro ../../../../Qt/5.15.2/mingw81_64/mksp
 ../../../../Qt/5.15.2/mingw81_64/mkspecs/features/yacc.prf:
 ../../../../Qt/5.15.2/mingw81_64/mkspecs/features/lex.prf:
 ../EnclosureWar/EnclosureWar.pro:
+../../../../Qt/5.15.2/mingw81_64/lib/Qt5Multimedia.prl:
 ../../../../Qt/5.15.2/mingw81_64/lib/Qt5Widgets.prl:
 ../../../../Qt/5.15.2/mingw81_64/lib/Qt5Gui.prl:
+../../../../Qt/5.15.2/mingw81_64/lib/Qt5Network.prl:
 ../../../../Qt/5.15.2/mingw81_64/lib/Qt5Core.prl:
 ../../../../Qt/5.15.2/mingw81_64/lib/qtmain.prl:
-.qmake.stash:
 ../../../../Qt/5.15.2/mingw81_64/mkspecs/features/build_pass.prf:
+../EnclosureWar/source/resource.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\EnclosureWar\EnclosureWar.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 
