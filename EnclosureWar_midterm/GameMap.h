@@ -3,20 +3,20 @@
 
 #include <QWidget>
 #include <QList>
-#include <QPainter>
 #include "Block.h"
-#include "Player.h"
 
-#define MAP_COLUMES	    100
-#define MAP_ROWS		75
+#define MAP_COLUMES	    100//*
+#define MAP_ROWS		75//*
 #define MAP_WIDTH		10
 #define MAP_HEIGHT		10
 
 class GameMap: public QWidget
 {
     Q_OBJECT
+    friend class Paint;
 public:
     explicit GameMap(QWidget *parent = nullptr);
+    /*
     GameMap(int x, int y, int member)
     {
         x_ = x;
@@ -40,14 +40,11 @@ public:
             players_.push_back(Player(x - 4, 5, Color::PURPLE));
         member_ = players_.size();
     }
+    */
     ~GameMap() {}
 
 signals:
     void sigUpdateScore(int nScore);
-
-public:
-    void DrawBlock(Block block, Color color);
-    void DrawBound();
 
 private:
     //获取不同分段对应的定时器时间，关卡越高，时间越快(短)
@@ -56,8 +53,6 @@ private:
     int x_;
     int y_;
     QList<QList<Block>> blocks_;
-    int member_;
-    QList<Player> players_;
 };
 
 #endif // GAMEMAP_H

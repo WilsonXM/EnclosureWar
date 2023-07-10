@@ -13,10 +13,14 @@ class initwindow : public QMainWindow
 
 public:
     explicit initwindow(QWidget *parent = nullptr);
+
+    void switchPage();
     ~initwindow();
 
 private slots:
-    void on_newGame_clicked();
+
+
+    void on_commitButton_clicked();
 
 private:
     Ui::initwindow *initwin;
