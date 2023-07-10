@@ -1,7 +1,7 @@
 #ifndef COLOR_H
 #define COLOR_H
 
-enum class Color
+enum Color
 {
     WHITE = 0,
     RED,
@@ -11,7 +11,8 @@ enum class Color
     LIGHTRED,
     LIGHTBLUE,
     LIGHTGREEN,
-    LIGHTPURPLE
+    LIGHTPURPLE,
+    Gray
 };
 
 #endif // COLOR_H
