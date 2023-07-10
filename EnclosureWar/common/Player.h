@@ -20,18 +20,19 @@ public:
     Player(int x, int y, Color playercolor) : QPoint(x, y)
     {
         playercolor_ = playercolor;
-        move_ = Move::STOP;
+        curmove_ = resmove_ = Move::STOP;
         speed_ = 200;
     }
     ~Player() {}
 
 public:
     Color GetPlayerColor() const { return playercolor_; }
-    Move GetMove() { return move_; }
+    Move GetMove() { return curmove_; }
     int GetSpeed() { return speed_; }
 
 public:
-    void SetMove(Move move) { move_ = move; }
+    void SetMove(Move move) { resmove_ = curmove_; curmove_ = move; }
+    void SwitchStop() { Move temp = resmove_; resmove_ = curmove_; curmove_ = temp; }
     void SpeedUp(int upper) { speed_ = speed_ + upper; }
     void SpeedDown(int lower) { speed_ = speed_ - lower; }
 
@@ -41,7 +42,8 @@ public:
 
 private:
     Color playercolor_;
-    Move move_;
+    Move curmove_;
+    Move resmove_;
     int speed_;
     QList<QPoint> passinglist_;
     QList<QPoint> occupantlist_;

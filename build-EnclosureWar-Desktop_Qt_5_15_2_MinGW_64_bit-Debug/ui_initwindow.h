@@ -1,11 +1,13 @@
-#pragma once
 /********************************************************************************
-** Form generated from reading UI file ''
+** Form generated from reading UI file 'initwindow.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
+
+#ifndef UI_INITWINDOW_H
+#define UI_INITWINDOW_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -39,6 +41,8 @@ public:
     QLabel *height0;
     QLineEdit *speedlineEdit;
     QLineEdit *timelineEdit;
+    QLabel *personNumber;
+    QLineEdit *personlineEdit;
 
     void setupUi(QMainWindow *initwindow)
     {
@@ -93,7 +97,7 @@ public:
         backButton->setGeometry(QRect(350, 420, 130, 50));
         backButton->setFont(font);
         mapsize = new QLabel(page1);
-        mapsize->setObjectName(QString::fromUtf8("Mapsize"));
+        mapsize->setObjectName(QString::fromUtf8("mapsize"));
         mapsize->setGeometry(QRect(20, 170, 100, 30));
         QFont font2;
         font2.setFamily(QString::fromUtf8("Consolas"));
@@ -141,6 +145,16 @@ public:
         timelineEdit->setCursorPosition(0);
         timelineEdit->setAlignment(Qt::AlignCenter);
         timelineEdit->setClearButtonEnabled(false);
+        personNumber = new QLabel(page1);
+        personNumber->setObjectName(QString::fromUtf8("personNumber"));
+        personNumber->setGeometry(QRect(20, 320, 100, 30));
+        personNumber->setFont(font2);
+        personlineEdit = new QLineEdit(page1);
+        personlineEdit->setObjectName(QString::fromUtf8("personlineEdit"));
+        personlineEdit->setGeometry(QRect(150, 320, 110, 30));
+        personlineEdit->setCursorPosition(0);
+        personlineEdit->setAlignment(Qt::AlignCenter);
+        personlineEdit->setClearButtonEnabled(false);
         stackedWidget->addWidget(page1);
         initwindow->setCentralWidget(centralwidget);
 
@@ -165,6 +179,7 @@ public:
         timeNeed->setText(QCoreApplication::translate("initwindow", "<html><head/><body><p align=\"right\"><span style=\" font-size:11pt;\">Time :</span></p></body></html>", nullptr));
         width0->setText(QCoreApplication::translate("initwindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:8pt;\">(Width)</span></p></body></html>", nullptr));
         height0->setText(QCoreApplication::translate("initwindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:8pt;\">(Height)</span></p></body></html>", nullptr));
+        personNumber->setText(QCoreApplication::translate("initwindow", "<html><head/><body><p align=\"right\"><span style=\" font-size:11pt;\">Person :</span></p></body></html>", nullptr));
     } // retranslateUi
 
 };
@@ -175,3 +190,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
+#endif // UI_INITWINDOW_H

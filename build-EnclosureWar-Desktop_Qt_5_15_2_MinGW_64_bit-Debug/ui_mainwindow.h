@@ -9,7 +9,6 @@
 #ifndef UI_MAINWINDOW_H
 #define UI_MAINWINDOW_H
 
-#include <GameMap.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
@@ -19,6 +18,7 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include <view_model/GameWidget.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -28,10 +28,9 @@ public:
     QWidget *centralwidget;
     QWidget *horizontalLayoutWidget_3;
     QHBoxLayout *horizontalLayout_0;
-    GameMap *widgetGameMap;
+    GameWidget *gamewidget;
     QVBoxLayout *verticalLayout;
-    QLabel *clock_2;
-    QSpacerItem *verticalSpacer_1;
+    QLabel *clock;
     QHBoxLayout *horizontalLayout_1;
     QLabel *labelPlayer1;
     QLabel *labelScore1;
@@ -44,7 +43,6 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QLabel *labelPlayer4;
     QLabel *labelScore4;
-    QSpacerItem *verticalSpacer_2;
     QPushButton *stopButton;
     QPushButton *musicButton;
     QSpacerItem *verticalSpacer_3;
@@ -62,28 +60,24 @@ public:
         horizontalLayout_0 = new QHBoxLayout(horizontalLayoutWidget_3);
         horizontalLayout_0->setObjectName(QString::fromUtf8("horizontalLayout_0"));
         horizontalLayout_0->setContentsMargins(0, 0, 0, 0);
-        widgetGameMap = new GameMap(horizontalLayoutWidget_3);
-        widgetGameMap->setObjectName(QString::fromUtf8("widgetGameMap"));
+        gamewidget = new GameWidget(horizontalLayoutWidget_3);
+        gamewidget->setObjectName(QString::fromUtf8("gamewidget"));
 
-        horizontalLayout_0->addWidget(widgetGameMap);
+        horizontalLayout_0->addWidget(gamewidget);
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        clock_2 = new QLabel(horizontalLayoutWidget_3);
-        clock_2->setObjectName(QString::fromUtf8("clock_2"));
-        clock_2->setEnabled(true);
-        clock_2->setMinimumSize(QSize(0, 140));
+        clock = new QLabel(horizontalLayoutWidget_3);
+        clock->setObjectName(QString::fromUtf8("clock"));
+        clock->setEnabled(true);
+        clock->setMinimumSize(QSize(0, 140));
         QFont font;
         font.setFamily(QString::fromUtf8("Consolas"));
         font.setPointSize(30);
         font.setBold(true);
-        clock_2->setFont(font);
+        clock->setFont(font);
 
-        verticalLayout->addWidget(clock_2);
-
-        verticalSpacer_1 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_1);
+        verticalLayout->addWidget(clock);
 
         horizontalLayout_1 = new QHBoxLayout();
         horizontalLayout_1->setObjectName(QString::fromUtf8("horizontalLayout_1"));
@@ -169,10 +163,6 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_4);
 
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_2);
-
         stopButton = new QPushButton(horizontalLayoutWidget_3);
         stopButton->setObjectName(QString::fromUtf8("stopButton"));
         stopButton->setMinimumSize(QSize(0, 50));
@@ -202,7 +192,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        clock_2->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\">60</p></body></html>", nullptr));
+        clock->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\">60</p></body></html>", nullptr));
         labelPlayer1->setText(QCoreApplication::translate("MainWindow", "Player 1 :", nullptr));
         labelScore1->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         labelPlayer2->setText(QCoreApplication::translate("MainWindow", "Player 2 :", nullptr));

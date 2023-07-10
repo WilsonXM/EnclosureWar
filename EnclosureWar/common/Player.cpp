@@ -2,7 +2,7 @@
 
 void Player::NextMove()
 {
-    switch((int)move_)
+    switch((int)curmove_)
     {
     case 1:
         this->setY(this->y() - 1);

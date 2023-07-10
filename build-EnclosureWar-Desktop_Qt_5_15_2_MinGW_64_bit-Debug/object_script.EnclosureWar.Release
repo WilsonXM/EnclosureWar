@@ -1,0 +1,11 @@
+release/qrc_resource.o
+release/Game.o
+release/GameWidget.o
+release/Paint.o
+release/Player.o
+release/main.o
+release/initwindow.o
+release/mainwindow.o
+release/moc_Game.o
+release/moc_initwindow.o
+release/moc_mainwindow.o
