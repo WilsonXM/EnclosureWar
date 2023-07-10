@@ -1,5 +1,10 @@
 #include "GameMap.h"
 
+GameMap::GameMap(QWidget *parent) : QWidget(parent)
+{
+    setMinimumSize(MAP_COLUMES*MAP_WIDTH, MAP_ROWS*MAP_HEIGHT);
+}
+
 void GameMap::DrawBlock(Block block, Color color)
 {
     QPainter painter(this);
@@ -56,4 +61,9 @@ void GameMap::DrawBound()
         blocks_[x_][y].SetBound(true);
         GameMap::DrawBlock(blocks_[x_][y], Color::Gray);
     }
+}
+
+int GameMap::GetScoreSpeed(int nScore)
+{
+    return 100;
 }

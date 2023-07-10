@@ -1,21 +1,32 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QKeyEvent>
 #include <QMainWindow>
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+namespace Ui {class MainWindow;}
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+protected:
+    void keyPressEvent(QKeyEvent *e);
+
+private slots:
+    void slotUpdateScore(int nScore);
+
+private:
+    int GetHistoryMaxScore();
+    void SaveHistoryMaxScore(int nScore);
 
 private:
     Ui::MainWindow *ui;
+
 };
-#endif // MAINWINDOW_H
+
+#endif

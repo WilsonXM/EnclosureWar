@@ -3,8 +3,5 @@
         <file alias="initwindow">initwindow.png</file>
         <file>icon.jpg</file>
     </qresource>
-    <qresource prefix="/music">
-        <file>Bach.wav</file>
-        <file>Yellow.wav</file>
-    </qresource>
+    <qresource prefix="/music"/>
 </RCC>

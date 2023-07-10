@@ -16,6 +16,7 @@ class GameMap: public QWidget
 {
     Q_OBJECT
 public:
+    explicit GameMap(QWidget *parent = nullptr);
     GameMap(int x, int y, int member)
     {
         x_ = x;
@@ -41,10 +42,16 @@ public:
     }
     ~GameMap() {}
 
+signals:
+    void sigUpdateScore(int nScore);
+
 public:
     void DrawBlock(Block block, Color color);
     void DrawBound();
 
+private:
+    //获取不同分段对应的定时器时间，关卡越高，时间越快(短)
+    int GetScoreSpeed(int nScore);
 private:
     int x_;
     int y_;
