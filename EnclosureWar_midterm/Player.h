@@ -34,6 +34,10 @@ public:
     void SpeedUp(int upper) { speed_ = speed_ + upper; }
     void SpeedDown(int lower) { speed_ = speed_ - lower; }
 
+public:
+    void NextMove();
+    void ChangeMoveDirection(Move move);
+
 private:
     Color playercolor_;
     Move move_;

@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     GameMap.cpp \
+    Player.cpp \
     main.cpp \
     mainwindow.cpp
 
