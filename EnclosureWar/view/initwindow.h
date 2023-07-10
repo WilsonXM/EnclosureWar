@@ -13,6 +13,7 @@ class initwindow : public QMainWindow
 
 public:
     explicit initwindow(QWidget *parent = nullptr);
+
     void switchPage();
     ~initwindow();
 
