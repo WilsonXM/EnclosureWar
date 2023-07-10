@@ -39,6 +39,9 @@ public:
     void ChangeMoveDirection(Move move);
 
 private:
+    QList<QPoint> mSnake;       //蛇身体
+    QList<QPoint> mTemp;        //路径
+    QList<QPoint> mRound;       //转弯点
     Color playercolor_;
     Move move_;
     int speed_;

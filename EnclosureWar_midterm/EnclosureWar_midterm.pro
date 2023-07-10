@@ -9,7 +9,9 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Game.cpp \
     GameMap.cpp \
+    Paint.cpp \
     Player.cpp \
     main.cpp \
     mainwindow.cpp
@@ -17,7 +19,9 @@ SOURCES += \
 HEADERS += \
     Block.h \
     Color.h \
+    Game.h \
     GameMap.h \
+    Paint.h \
     Player.h \
     mainwindow.h
 
