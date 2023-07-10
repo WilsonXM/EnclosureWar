@@ -1,4 +1,4 @@
-#include "window/initwindow.h"
+#include "view/initwindow.h"
 
 #include <QApplication>
 #include <QSoundEffect>
