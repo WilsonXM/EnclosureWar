@@ -11,25 +11,43 @@
 class Game : public QObject
 {
     Q_OBJECT
+
+friend class Player;
+
 public:
     Game(int x, int y, int member, GameWidget *gamew);
     ~Game() {}
-
-public:
-    //void NewGameMap(int x, int y, int member);
-    Paint *GetPaint() { return paint; }
-    void KeyPressed(int key);
-    void timerEvent(QTimerEvent *);
     void SetBound();
 
+public://游戏操作变量
+    void PlayerRebirth(int PlayerNumber);//玩家重生
+
+public://工具操作变量
+    bool HitSide(QPoint pt);
+
+
+public:
+    //void NewGameMap(int x, int y, int member);    
+    void KeyPressed(int key);
+
+public:
+    Paint *GetPaint() { return paint; }
+    void timerEvent(QTimerEvent *);
+
 private:
-    int x_;
+    int x_;//场地大小
     int y_;
-    QList<QList<Block>> blocks_;
-    int member_;
+
+    QList<QList<Block>> blocks_;//所有块
+
+    int member_;//玩家人数
     QList<Player> players_;
+
     Paint *paint;
     int timer_;
+
+private:
+    bool IfSuspend;
 };
 
 #endif // GAME_H

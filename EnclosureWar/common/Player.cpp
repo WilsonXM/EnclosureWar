@@ -20,8 +20,10 @@ void Player::NextMove()
         break;
     }
 }
+
 void Player::ChangeMoveDirection(Move move)
 {
+    if(!IfTurn) return;
     bool flag = true;
     switch((int) move)
     {
@@ -44,6 +46,5 @@ void Player::ChangeMoveDirection(Move move)
     default:
         break;
     }
-    if(flag)
-        this->SetMove(move);
+    if(flag) this->SetMove(move);
 }

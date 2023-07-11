@@ -16,11 +16,14 @@ enum class Move
 
 class Player : public QPoint
 {
+
+    friend class Game;
+
 public:
     Player(int x, int y, Color playercolor) : QPoint(x, y)
     {
         playercolor_ = playercolor;
-        curmove_ = resmove_ = Move::STOP;
+        curmove_ = Move::STOP;
         speed_ = 200;
     }
     ~Player() {}
@@ -31,8 +34,7 @@ public:
     int GetSpeed() { return speed_; }
 
 public:
-    void SetMove(Move move) { resmove_ = curmove_; curmove_ = move; }
-    void SwitchStop() { Move temp = resmove_; resmove_ = curmove_; curmove_ = temp; }
+    void SetMove(Move move) { curmove_ = move; }
     void SpeedUp(int upper) { speed_ = speed_ + upper; }
     void SpeedDown(int lower) { speed_ = speed_ - lower; }
 
@@ -43,7 +45,7 @@ public:
 private:
     Color playercolor_;
     Move curmove_;
-    Move resmove_;
+    bool IfTurn;
     int speed_;
     QList<QPoint> passinglist_;
     QList<QPoint> occupantlist_;
