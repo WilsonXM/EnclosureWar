@@ -12,6 +12,7 @@ SOURCES += \
     App/App.cpp \
     Common/Common.cpp \
     Model/Block.cpp \
+    Model/Model.cpp \
     Model/Player.cpp \
     ViewModel/ViewModel.cpp \
     main.cpp \
