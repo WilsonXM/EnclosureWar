@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/images">
-        <file alias="initwindow">initwindow.png</file>
-        <file>icon.jpg</file>
-    </qresource>
-    <qresource prefix="/music"/>
-</RCC>
