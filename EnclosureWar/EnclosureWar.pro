@@ -11,8 +11,7 @@ CONFIG += c++17
 
 SOURCES += \
     view_model/Game.cpp \
-    view_model/GameWidget.cpp \
-    model/Paint.cpp \
+    model/GameWidget.cpp \
     common/Player.cpp \
     main.cpp \
     view/initwindow.cpp \
@@ -22,8 +21,7 @@ HEADERS += \
     common/Block.h \
     common/Color.h \
     view_model/Game.h \
-    view_model/GameWidget.h \
-    model/Paint.h \
+    model/GameWidget.h \
     common/Player.h \
     view/initwindow.h \
     view/mainwindow.h

@@ -1,7 +1,6 @@
 debug/qrc_resource.o
 debug/Game.o
 debug/GameWidget.o
-debug/Paint.o
 debug/Player.o
 debug/main.o
 debug/initwindow.o

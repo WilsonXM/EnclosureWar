@@ -5,30 +5,27 @@
 #include <QTime>
 #include <QTimerEvent>
 #include <QMessageBox>
-#include "model/Paint.h"
+#include "model/GameWidget.h"
 #include "common/Player.h"
+
+extern int member_;
 
 class Game : public QObject
 {
     Q_OBJECT
 public:
-    Game(int x, int y, int member, GameWidget *gamew);
+    Game(GameWidget *gamew);
     ~Game() {}
 
 public:
-    //void NewGameMap(int x, int y, int member);
-    Paint *GetPaint() { return paint; }
     void KeyPressed(int key);
     void timerEvent(QTimerEvent *);
     void SetBound();
 
 private:
-    int x_;
-    int y_;
     QList<QList<Block>> blocks_;
-    int member_;
     QList<Player> players_;
-    Paint *paint;
+    GameWidget *gwTEST;
     int timer_;
 };
 

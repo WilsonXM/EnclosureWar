@@ -54,13 +54,13 @@ void initwindow::switchPage()
 void initwindow::on_commitButton_clicked()
 {
     // get the set info
-    int width = initwin->widthlineEdit->text().toInt();
-    int height = initwin->heightlineEdit->text().toInt();
+    x_ = initwin->widthlineEdit->text().toInt();
+    y_ = initwin->heightlineEdit->text().toInt();
     int speed = initwin->speedlineEdit->text().toInt();
     int time = initwin->timelineEdit->text().toInt();
-    int pnum = initwin->personlineEdit->text().toInt();
+    member_ = initwin->personlineEdit->text().toInt();
 
-    MainWindow *main = new MainWindow(nullptr, width, height, pnum);
+    MainWindow *main = new MainWindow;
     main->show();
     this->close();
 }

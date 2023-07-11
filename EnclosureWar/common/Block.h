@@ -34,7 +34,7 @@ public:
     void SetBound(bool bound) { is_bound_ = bound; }
     void SetProp(bool prop) { is_prop_ = prop; }
     void Passing(Color PlayerColor) { passing_ = PlayerColor; }
-    void Occupied() { occupant_ = passing_; }
+    void Occupied(Color PlayerColor) { occupant_ = PlayerColor; }
     void Recover() { passing_ = occupant_; }
 
 private:

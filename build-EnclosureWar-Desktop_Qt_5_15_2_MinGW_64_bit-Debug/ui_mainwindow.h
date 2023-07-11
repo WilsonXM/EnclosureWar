@@ -18,7 +18,7 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
-#include <view_model/GameWidget.h>
+#include <model/GameWidget.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -29,6 +29,7 @@ public:
     QWidget *horizontalLayoutWidget_3;
     QHBoxLayout *horizontalLayout_0;
     GameWidget *gamewidget;
+    QSpacerItem *horizontalSpacer;
     QVBoxLayout *verticalLayout;
     QLabel *clock;
     QHBoxLayout *horizontalLayout_1;
@@ -43,6 +44,7 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QLabel *labelPlayer4;
     QLabel *labelScore4;
+    QSpacerItem *verticalSpacer;
     QPushButton *stopButton;
     QPushButton *musicButton;
     QSpacerItem *verticalSpacer_3;
@@ -64,6 +66,10 @@ public:
         gamewidget->setObjectName(QString::fromUtf8("gamewidget"));
 
         horizontalLayout_0->addWidget(gamewidget);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_0->addItem(horizontalSpacer);
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -162,6 +168,10 @@ public:
 
 
         verticalLayout->addLayout(horizontalLayout_4);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer);
 
         stopButton = new QPushButton(horizontalLayoutWidget_3);
         stopButton->setObjectName(QString::fromUtf8("stopButton"));
