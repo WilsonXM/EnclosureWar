@@ -1,20 +1,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent, int width, int height, int pnum)
+MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , mainwin(new Ui::MainWindow)
-    , width_(width)
-    , height_(height)
-    , pnum_(pnum)
 {
     mainwin->setupUi(this);
-    resize(width_ * MAP_WIDTH + 300, height_ * MAP_HEIGHT);
+    resize(x_ * MAP_WIDTH + 300, y_ * MAP_HEIGHT + 75);
 
-    // 设置GameWidget大小
-    mainwin->gamewidget->ReSize(width_, height_);
     // 初始化Game
-    game = new Game(width_, height_, pnum_, mainwin->gamewidget);
+    game = new Game(mainwin->gamewidget);
+
     // 设置paint和paint *
     //mainwin->gamewidget->SetPaint(game->GetPaint());
 

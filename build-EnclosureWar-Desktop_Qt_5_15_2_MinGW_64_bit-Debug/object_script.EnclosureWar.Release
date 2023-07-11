@@ -1,7 +1,6 @@
 release/qrc_resource.o
 release/Game.o
 release/GameWidget.o
-release/Paint.o
 release/Player.o
 release/main.o
 release/initwindow.o
