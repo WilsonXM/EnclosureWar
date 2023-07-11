@@ -17,6 +17,7 @@ SOURCES += \
 
 HEADERS += \
     App/App.h \
+    Common/Commands.h \
     Common/Common.h \
     Model/Model.h \
     View/View.h \
