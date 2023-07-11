@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     App/App.cpp \
     Common/Common.cpp \
+    Model/Model.cpp \
     ViewModel/ViewModel.cpp \
     main.cpp \
     View/View.cpp
