@@ -1,5 +1,6 @@
 #include "App.h"
-int isBuild = false;
+
+bool IsBuild = false;
 
 App::App()
 {
@@ -46,7 +47,8 @@ App::App()
 
 void App::run()
 {
-    if(!isBuild) {
+    if(!IsBuild)
+    {
         int pnum = view->Get_Person_Num();
         if(pnum == 2) view_model->Get_BuildGame2P_Command()->exec();
         if(pnum == 3) view_model->Get_BuildGame3P_Command()->exec();

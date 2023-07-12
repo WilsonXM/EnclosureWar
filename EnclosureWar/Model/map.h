@@ -21,6 +21,7 @@ public://对内函数
     void MoveControl(int pn, Move move);
     void MoveUnlock();
     void PlayerRebirth(int PlayerNumber);
+    void PlayerGo();
     void PlayerHitSide();
     bool HitSide(QPoint pt);
     void HitPlayer();

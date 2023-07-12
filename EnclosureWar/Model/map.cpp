@@ -127,6 +127,34 @@ void Map::PlayerRebirth(int PlayerNumber)
 
 }
 
+void Map::PlayerGo()
+{
+    for(int i = 0; i < pn; i++)
+    {
+        if(data_players_[i].GetMove() != Move::STOP)
+        {
+            switch (data_players_[i].GetMove())
+            {
+            case Move::UP:
+                data_players_[i].SetDirection(QPoint(data_players_[i].GetDirection().x(), data_players_[i].GetDirection().y()-1));
+                break;
+            case Move::DOWN:
+                data_players_[i].SetDirection(QPoint(data_players_[i].GetDirection().x(), data_players_[i].GetDirection().y()+1));
+                break;
+            case Move::LEFT:
+                data_players_[i].SetDirection(QPoint(data_players_[i].GetDirection().x()-1, data_players_[i].GetDirection().y()));
+                break;
+            case Move::RIGHT:
+                data_players_[i].SetDirection(QPoint(data_players_[i].GetDirection().x()+1, data_players_[i].GetDirection().y()));
+                break;
+            default:
+                break;
+            }
+        }
+        else;
+    }
+}
+
 void Map::PlayerHitSide()
 {
     for(int i = 0; i < pn; i++)
@@ -578,15 +606,19 @@ void Map::FillToBlock()
             {
             case 0:
                 data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetOccupied(RED);
+                data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetPassing(RED);
                 break;
             case 1:
                 data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetOccupied(BLUE);
+                data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetPassing(BLUE);
                 break;
             case 2:
                 data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetOccupied(GREEN);
+                data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetPassing(GREEN);
                 break;
             case 3:
                 data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetOccupied(PURPLE);
+                data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetPassing(PURPLE);
                 break;
             default:
                 break;
