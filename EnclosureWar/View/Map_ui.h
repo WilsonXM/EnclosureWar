@@ -13,6 +13,7 @@ class Map_ui : public QWidget
 public:
     explicit Map_ui(QWidget *parent = nullptr);
     void paint(QPainter &,int width, int height);
+    void set_blocks_colors();
 
 private:
     QSharedPointer<QList<QList<Block>>> blocks_colors;
