@@ -1,23 +1,12 @@
 #ifndef BLOCK_H
 #define BLOCK_H
-#include <QPoint>
-#include <QObject>
-#include <QList>
-#include <QPoint>
-#include <QList>
-#include <QObject>
-#include <QSharedPointer>
-#include <vector>
-#include <QSet>
-#include <QRectF>
-#include "Common/Common.h"
-#include <QWidget>
 
-class Block : public QWidget
+#include "Common/Common.h"
+
+class Block
 {
-    Q_OBJECT
 public:
-    Block(int x, int y)
+    Block()
     {
         is_bound_ = false;
         is_prop_ = false;

@@ -2,20 +2,15 @@
 #define MAP_H
 
 #include <QPoint>
-#include <QObject>
 #include <QList>
 #include <QSharedPointer>
 #include <QMessageBox>
-#include <vector>
-#include <QSet>
-#include <QRectF>
 #include "Common/Common.h"
 #include "Common/Block.h"
 #include "Model/Player.h"
 
-class Map : public QObject
+class Map
 {
-    Q_OBJECT
 public:
     Map();
     ~Map() {}
