@@ -31,6 +31,10 @@ class ViewModel
 public:
     ViewModel(QSharedPointer<Model> &model) noexcept;
 
+public:
+    const QList<QList<Block>> GetBlocks();
+    const QList<Player> GetPlayers();
+
 public: // 执行函数
     void Exec_BuildGame2P_Command();
     void Exec_BuildGame3P_Command();

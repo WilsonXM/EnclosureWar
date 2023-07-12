@@ -2,6 +2,10 @@
 
 ViewModel::ViewModel(QSharedPointer<Model> &model) noexcept { m_model = model; }
 
+const QList<QList<Block>> ViewModel::GetBlocks() { return m_model->map->GetBlocks(); }
+
+const QList<Player> ViewModel::GetPlayers() { return m_model->map->GetPlayers(); }
+
 void ViewModel::Exec_BuildGame2P_Command() { m_model->BuildGame(2); }
 
 void ViewModel::Exec_BuildGame3P_Command() { m_model->BuildGame(3); }
