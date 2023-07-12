@@ -9,18 +9,17 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    App/App.cpp \
     Common/Common.cpp \
     Model/Block.cpp \
     Model/Map.cpp \
     Model/Model.cpp \
     Model/Player.cpp \
+    View/View.cpp \
     ViewModel/ViewModel.cpp \
-    main.cpp \
-    View/View.cpp
+    App/App.cpp \
+    main.cpp
 
 HEADERS += \
-    App/App.h \
     Common/Commands.h \
     Common/Common.h \
     Model/Block.h \
@@ -28,7 +27,26 @@ HEADERS += \
     Model/Model.h \
     Model/Player.h \
     View/View.h \
-    ViewModel/ViewModel.h
+    ViewModel/ViewModel.h \
+    ViewModel/BuildGame_Command.h \
+    ViewModel/Move_Command.h \
+    ViewModel/Player1_Left_Command.h \
+    ViewModel/Player1_Right_Command.h \
+    ViewModel/Player1_Up_Command.h \
+    ViewModel/Player1_Down_Command.h \
+    ViewModel/Player2_Left_Command.h \
+    ViewModel/Player2_Right_Command.h \
+    ViewModel/Player2_Up_Command.h \
+    ViewModel/Player2_Down_Command.h \
+    ViewModel/Player3_Left_Command.h \
+    ViewModel/Player3_Right_Command.h \
+    ViewModel/Player3_Up_Command.h \
+    ViewModel/Player3_Down_Command.h \
+    ViewModel/Player4_Left_Command.h \
+    ViewModel/Player4_Right_Command.h \
+    ViewModel/Player4_Up_Command.h \
+    ViewModel/Player4_Down_Command.h \
+    App/App.h
 
 FORMS += \
     View/view.ui
