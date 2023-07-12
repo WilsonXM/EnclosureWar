@@ -11,12 +11,12 @@ void Player::SetMove(const Move &&move) noexcept
     curmove_ = move;
 }
 
-void Player::SetTurn(const bool &&ifturn) noexcept
+void Player::SetTurn(const bool ifturn) noexcept
 {
     IfTurn_ = ifturn;
 }
 
-void Player::SetOut(const bool &&ifout) noexcept
+void Player::SetOut(const bool ifout) noexcept
 {
     IfOut_ = ifout;
 }
@@ -73,6 +73,11 @@ int Player::GetScore() noexcept
     return score_;
 }
 
+bool Player::GetOut() noexcept
+{
+    return IfOut_;
+}
+
 QPoint Player::GetSmallRange() noexcept
 {
     return range_[0];
@@ -84,7 +89,7 @@ QPoint Player::GetBigRange() noexcept
 }
 
 //功能函数
-void Player::ChangeMoveDirection(const Move &&move)
+void Player::ChangeMoveDirection(Move move)
 {
     if(!IfTurn_) return;
     bool flag = true;
@@ -111,5 +116,6 @@ void Player::ChangeMoveDirection(const Move &&move)
     }
     if(flag)
         this->curmove_ = move;
+    IfTurn_ = false;
 }
 
