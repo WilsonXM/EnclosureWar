@@ -20,7 +20,6 @@ public://对外函数
     void Move() noexcept;// 间隔刷新的move函数
 
 public://对外变量
-    //QSharedPointer<QList<QList<Block>>> blocks_;
     QSharedPointer<Map> map;
 
 };
