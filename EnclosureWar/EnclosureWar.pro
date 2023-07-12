@@ -12,6 +12,7 @@ SOURCES += \
     App/App.cpp \
     Common/Common.cpp \
     Model/Block.cpp \
+    Model/Map.cpp \
     Model/Model.cpp \
     Model/Player.cpp \
     ViewModel/ViewModel.cpp \
@@ -23,6 +24,7 @@ HEADERS += \
     Common/Commands.h \
     Common/Common.h \
     Model/Block.h \
+    Model/Map.h \
     Model/Model.h \
     Model/Player.h \
     View/View.h \
