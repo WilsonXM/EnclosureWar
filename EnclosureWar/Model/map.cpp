@@ -1,4 +1,4 @@
-#include "map.h"
+#include "Map.h"
 
 //对内函数
 void Map::GameStart(int p)

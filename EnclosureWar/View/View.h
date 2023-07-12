@@ -49,10 +49,10 @@ public:
     void set_player4_left_command(QSharedPointer<Commands>);
     void set_player4_right_command(QSharedPointer<Commands>);
 
-    /*
+
     // 获取blocks信息的方法
-    void set_get_blocks_colors(const std::function<QSharedPointer<QList<QList<Block>>>&&);
-    */
+    void set_get_blocks_colors(const std::function<QSharedPointer<QList<QList<Block>>>&&(void)>);
+
 
     // 获取/设置游戏时间
     int get_GameTime() { return gametime; }
@@ -111,7 +111,7 @@ private:
     QSharedPointer<Commands> player4_right_command;  // 玩家4右移指令
 
     // 获取所有blocks的染色信息
-    //std::function<QSharedPointer<QList<QList<Block>>>(void)> get_blocks_colors;
+    std::function<QSharedPointer<QList<QList<Block>>>(void)> get_blocks_colors;
 
     // 定时器
     QTimer *timer;
