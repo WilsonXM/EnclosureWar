@@ -1,6 +1,5 @@
 #ifndef BLOCK_H
 #define BLOCK_H
-
 #include <QPoint>
 #include <QObject>
 #include <QList>
@@ -12,8 +11,9 @@
 #include <QSet>
 #include <QRectF>
 #include "Common/Common.h"
+#include <QWidget>
 
-class Block : public QObject
+class Block : public QWidget
 {
     Q_OBJECT
 public:
@@ -46,8 +46,6 @@ private:
     Color occupant_;
     Color passing_;
 
-public:
-    QList<QList<Block>> blocks_;//所有块
 };
 
 #endif // BLOCK_H

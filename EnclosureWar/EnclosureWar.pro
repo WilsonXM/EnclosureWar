@@ -10,10 +10,10 @@ CONFIG += c++17
 
 SOURCES += \
     Common/Common.cpp \
-    Model/Block.cpp \
-    Model/Map.cpp \
+    Common/Block.cpp \
     Model/Model.cpp \
     Model/Player.cpp \
+    Model/Map.cpp \
     View/View.cpp \
     ViewModel/ViewModel.cpp \
     App/App.cpp \
@@ -22,10 +22,10 @@ SOURCES += \
 HEADERS += \
     Common/Commands.h \
     Common/Common.h \
-    Model/Block.h \
-    Model/Map.h \
+    Common/Block.h \
     Model/Model.h \
     Model/Player.h \
+    Model/Map.h \
     View/View.h \
     ViewModel/ViewModel.h \
     ViewModel/BuildGame2P_Command.h \

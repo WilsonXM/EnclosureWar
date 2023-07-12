@@ -2,20 +2,25 @@
 #define MODEL_H
 
 #include <QObject>
+#include <QPointer>
+#include <QMessageBox>
 #include "Model/Player.h"
+#include "Common/Block.h"
 #include "Model/Map.h"
 
 class Model : public QObject
 {
     Q_OBJECT
-public:
-    void BuildGame(const int &&player);//输入玩家人数构建游戏
-    void PlayerMove(const int &&playernum, const Move &&playermove) noexcept;// 玩家移动调用函数
+    Model();
+    ~Model() {}//析构
+
+public://对外函数
+    void BuildGame(const int &&player) noexcept;//输入玩家人数构建游戏
+    void PlayerMove(const int &&playernum, const enum Move &&playermove) noexcept;// 玩家移动调用函数
     void Move() noexcept;// 间隔刷新的move函数
 
-public:
-    QSharedPointer<Block> blocks_;
-    QSharedPointer<Player> players_;
+public://对外变量
+    QSharedPointer<Map> map;
 
 };
 
