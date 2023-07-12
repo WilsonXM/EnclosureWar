@@ -2,7 +2,7 @@
 
 App::App()
 {
-
+    view = QSharedPointer<View>::create();
 }
 
 void App::run()

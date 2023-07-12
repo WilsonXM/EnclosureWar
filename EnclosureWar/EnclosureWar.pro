@@ -14,6 +14,11 @@ SOURCES += \
     Model/Block.cpp \
     Model/Model.cpp \
     Model/Player.cpp \
+    View/ClockLabel_ui.cpp \
+    View/Map_ui.cpp \
+    View/MusicButton_ui.cpp \
+    View/PauseButton_ui.cpp \
+    View/ScoreLabel_ui.cpp \
     ViewModel/ViewModel.cpp \
     main.cpp \
     View/View.cpp
@@ -25,6 +30,11 @@ HEADERS += \
     Model/Block.h \
     Model/Model.h \
     Model/Player.h \
+    View/ClockLabel_ui.h \
+    View/Map_ui.h \
+    View/MusicButton_ui.h \
+    View/PauseButton_ui.h \
+    View/ScoreLabel_ui.h \
     View/View.h \
     ViewModel/ViewModel.h
 
