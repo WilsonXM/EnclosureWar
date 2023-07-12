@@ -1,6 +1,5 @@
 #include "Model/Block.h"
 
-
 void Block::InitBlock() noexcept
 {
     occupant_ = Color::WHITE;

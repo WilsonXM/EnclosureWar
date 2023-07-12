@@ -112,3 +112,4 @@ void Player::ChangeMoveDirection(const Move &&move)
     if(flag)
         this->curmove_ = move;
 }
+
