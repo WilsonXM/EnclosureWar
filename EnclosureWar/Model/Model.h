@@ -5,7 +5,7 @@
 #include <QPointer>
 #include <QMessageBox>
 #include "Model/Player.h"
-#include "Model/Block.h"
+#include "Common/Block.h"
 #include "Model/Map.h"
 
 class Model : public QObject

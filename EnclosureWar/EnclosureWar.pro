@@ -11,7 +11,7 @@ CONFIG += c++17
 SOURCES += \
     App/App.cpp \
     Common/Common.cpp \
-    Model/Block.cpp \
+    Common/Block.cpp \
     Model/Model.cpp \
     Model/Player.cpp \
     Model/Map.cpp \
@@ -23,7 +23,7 @@ HEADERS += \
     App/App.h \
     Common/Commands.h \
     Common/Common.h \
-    Model/Block.h \
+    Common/Block.h \
     Model/Model.h \
     Model/Player.h \
     Model/Map.h \

@@ -10,7 +10,7 @@
 #include <QSet>
 #include <QRectF>
 #include "Common/Common.h"
-#include "Model/Block.h"
+#include "Common/Block.h"
 #include "Model/Player.h"
 
 class Map : public QObject
