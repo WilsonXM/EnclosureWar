@@ -12,7 +12,7 @@
 class Map
 {
 public:
-    Map();
+    Map() {}
     ~Map() {}
 
 public://对内函数

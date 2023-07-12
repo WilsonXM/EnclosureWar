@@ -39,27 +39,35 @@ View::View(QWidget *parent)
     // 初始化共享指针
     pausebutton = static_cast<QSharedPointer<PauseButton_ui>>(ui->pausebutton);
     musicbutton = static_cast<QSharedPointer<MusicButton_ui>>(ui->musicbutton);
+
     //      初始化倒计时，并赋初值
+    gametime = spinbox2->value();
     clocklabel = static_cast<QSharedPointer<ClockLabel_ui>>(ui->clock);
+    clocklabel->setText(QString(gametime) + QString("s"));
+
     //      初始化分值标签，赋初值，并根据人数显示
-    int pNum = spinbox1->value();
+    pNum = spinbox1->value();
     if(pNum >= 1) {
         scorelabels.push_back(static_cast<QSharedPointer<ScoreLabel_ui>>(ui->scorelabel_1));
+        scorelabels[0]->setText(QString("0"));
         scorelabels[0]->setVisible(true);
         ui->playerlabel_1->setVisible(true);
     }
     if(pNum >= 2) {
         scorelabels.push_back(static_cast<QSharedPointer<ScoreLabel_ui>>(ui->scorelabel_2));
+        scorelabels[1]->setText(QString("0"));
         scorelabels[1]->setVisible(true);
         ui->playerlabel_2->setVisible(true);
     }
     if(pNum >= 3) {
         scorelabels.push_back(static_cast<QSharedPointer<ScoreLabel_ui>>(ui->scorelabel_3));
+        scorelabels[2]->setText(QString("0"));
         scorelabels[2]->setVisible(true);
         ui->playerlabel_3->setVisible(true);
     }
     if(pNum >= 4) {
         scorelabels.push_back(static_cast<QSharedPointer<ScoreLabel_ui>>(ui->scorelabel_4));
+        scorelabels[3]->setText(QString("0"));
         scorelabels[3]->setVisible(true);
         ui->playerlabel_4->setVisible(true);
     }
@@ -69,9 +77,6 @@ View::View(QWidget *parent)
 
     timer->start(GCD);
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
-
-    // 连接暂停信号
-    connect(this, &View::pause_signal, this, &View::react_game_status_change);
 
     this->setFixedSize(1300, 800);
 }
@@ -164,7 +169,7 @@ void View::set_player4_right_command(QSharedPointer<Commands> command)
 }
 
 // 获取blocks信息的方法
-void View::set_get_blocks_colors(const std::function<QSharedPointer<QList<QList<Block>>>&&(void)> func)
+void View::set_get_blocks_colors(const std::function<QList<QList<Block>>(void)> func)
 {
     get_blocks_colors = func;
 }
@@ -187,7 +192,10 @@ void View::paintEvent(QPaintEvent *)
     QPainter painter(this); // 构建画笔
 
     // 绘制地图
+    map->set_blocks_colors(get_blocks_colors());
     map->paint(painter, 100, 75);
+
+    update();
 
 }
 
