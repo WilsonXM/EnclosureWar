@@ -21,7 +21,6 @@ public://对外函数
 
 public://对外变量
     QSharedPointer<Map> map;
-
 };
 
 #endif // MODEL_H
