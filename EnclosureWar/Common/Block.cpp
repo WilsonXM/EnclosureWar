@@ -28,5 +28,5 @@ void Block::SetOccupied(const Color &&PlayerColor) noexcept
 
 void Block::Recover() noexcept
 {
-    passing_ = occupant_;
+    passing_ = occupant_ = Color::WHITE;
 }
