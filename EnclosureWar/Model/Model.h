@@ -14,7 +14,7 @@ public:
     void Move() noexcept;// 间隔刷新的move函数
 
 public:
-    QSharedPointer<Map> blocks_;
+    QSharedPointer<Block> blocks_;
     QSharedPointer<Player> players_;
 
 };
