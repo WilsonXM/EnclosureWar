@@ -5,7 +5,7 @@
 #include <QWidget>
 #include <QPainter>
 #include <QPixmap>
-//#include "Common/Block.h"
+#include "Common/Block.h"
 
 class Map_ui : public QWidget
 {
@@ -15,7 +15,7 @@ public:
     void paint(QPainter &,int width, int height);
 
 private:
-    //QSharedPointer<QList<QList<Block>> blocks_colors;
+    QSharedPointer<QList<QList<Block>>> blocks_colors;
 };
 
 #endif // MAP_UI_H

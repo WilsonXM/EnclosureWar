@@ -163,13 +163,11 @@ void View::set_player4_right_command(QSharedPointer<Commands> command)
     player4_right_command = command;
 }
 
-/*
 // 获取blocks信息的方法
-void set_get_blocks_colors(const std::function<QSharedPointer<QList<QList<Block>>>&& func)
+void View::set_get_blocks_colors(const std::function<QSharedPointer<QList<QList<Block>>>&&(void)> func)
 {
     get_blocks_colors = func;
 }
-*/
 
 void View::keyPressEvent(QKeyEvent *event)
 {
