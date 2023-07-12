@@ -64,6 +64,8 @@ public:
     int get_GameTime() { return gametime; }
     void set_GameTime(const int time) { gametime = time; }
 
+    bool pause_signal = false;
+
 protected:
     void keyPressEvent(QKeyEvent *event) override; // 键盘按下事件
     void keyReleaseEvent(QKeyEvent *event) override; // 键盘松开事件
@@ -71,7 +73,7 @@ protected:
     //void mousePressEvent(QMouseEvent *event) override; // 鼠标点击时间
 
 signals:
-    void pause_signal(const GameState &status); // 发送暂停信号
+    //void pause_signal(const GameState &status); // 发送暂停信号
 
 private slots:
     void move(); // 每隔一段时间就触发move_command
@@ -80,7 +82,10 @@ private:
     Ui::View *ui;
     QSet<Qt::Key> keys_pressed; // 被按下的所有按键
 
+
     int pNum = 2;            // 游戏人数
+    int single_sec = 0;
+    int total_sec = 0;
     int gametime = 60;      // 单位是秒(s)
 
     // 游戏界面背景

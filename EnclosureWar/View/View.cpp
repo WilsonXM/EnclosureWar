@@ -42,10 +42,11 @@ View::View(QWidget *parent)
 
     //      初始化倒计时，并赋初值
     gametime = spinbox2->value();
+    total_sec = gametime * 60;
     clocklabel = static_cast<QSharedPointer<ClockLabel_ui>>(ui->clock);
     char GameTime_left[10];
     sprintf(GameTime_left, "%d", gametime);
-    ui->clock->setText(QString(GameTime_left) + QString(":") + QString("00"));
+    ui->clock->setText(QString(GameTime_left) + QString(" :") + QString(" 0 0"));
 
 
     //      初始化分值标签，赋初值，并根据人数显示
@@ -184,8 +185,8 @@ void View::keyPressEvent(QKeyEvent *event)
 {
     keys_pressed += Qt::Key(event->key());
     /* 1.游戏暂停 */
-    if (keys_pressed.contains(Qt::Key_Space))
-        emit pause_signal(PAUSE);
+    //if (keys_pressed.contains(Qt::Key_Space))
+        //emit pause_signal(PAUSE);
 }
 void View::keyReleaseEvent(QKeyEvent *event)
 {
@@ -276,5 +277,9 @@ void View::move()
     }
 
     move_command->exec();
+
+    // 实现倒计时
+    single_sec++;
+
     update();
 }
