@@ -5,7 +5,9 @@
 #include <QEnableSharedFromThis>
 #include"./Model/Model.h"
 #include "./Common/Commands.h"
-#include "BuildGame_Command.h"
+#include "BuildGame2P_Command.h"
+#include "BuildGame3P_Command.h"
+#include "BuildGame4P_Command.h"
 #include "Move_Command.h"
 #include "Player1_Down_Command.h"
 #include "Player1_Left_Command.h"
@@ -30,7 +32,9 @@ public:
     ViewModel(QSharedPointer<Model> &model) noexcept;
 
 public: // 执行函数
-    void Exec_BuildGame_Command();
+    void Exec_BuildGame2P_Command();
+    void Exec_BuildGame3P_Command();
+    void Exec_BuildGame4P_Command();
     void Exec_Move_Command();
 
     void Exec_Player1_Down_Command();
@@ -57,7 +61,9 @@ public: // 构造并绑定命令指针
     void Setup_Commands(QSharedPointer<ViewModel> &vm);
 
 public: // 获取命令指针
-    QSharedPointer<Commands> Get_BuildGame_Command();
+    QSharedPointer<Commands> Get_BuildGame2P_Command();
+    QSharedPointer<Commands> Get_BuildGame3P_Command();
+    QSharedPointer<Commands> Get_BuildGame4P_Command();
     QSharedPointer<Commands> Get_Move_Command();
 
     QSharedPointer<Commands> Get_Player1_Down_Command();
@@ -85,7 +91,9 @@ private:
     QSharedPointer<Model> m_model;
 
     // 指向各种命令的指针
-    QSharedPointer<BuildGame_Command<ViewModel>> buildgame_command_;
+    QSharedPointer<BuildGame2P_Command<ViewModel>> buildgame2p_command_;
+    QSharedPointer<BuildGame3P_Command<ViewModel>> buildgame3p_command_;
+    QSharedPointer<BuildGame4P_Command<ViewModel>> buildgame4p_command_;
     QSharedPointer<Move_Command<ViewModel>> move_command_;
 
     QSharedPointer<Player1_Down_Command<ViewModel>> player1_down_command_;

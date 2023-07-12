@@ -28,7 +28,9 @@ HEADERS += \
     Model/Player.h \
     View/View.h \
     ViewModel/ViewModel.h \
-    ViewModel/BuildGame_Command.h \
+    ViewModel/BuildGame2P_Command.h \
+    ViewModel/BuildGame3P_Command.h \
+    ViewModel/BuildGame4P_Command.h \
     ViewModel/Move_Command.h \
     ViewModel/Player1_Left_Command.h \
     ViewModel/Player1_Right_Command.h \
