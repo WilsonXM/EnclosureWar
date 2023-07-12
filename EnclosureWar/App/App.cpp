@@ -1,4 +1,5 @@
 #include "App.h"
+int isBuild = false;
 
 App::App()
 {
@@ -45,9 +46,12 @@ App::App()
 
 void App::run()
 {
-    int pnum = view->Get_Person_Num();
-    if(pnum == 2) view_model->Get_BuildGame2P_Command()->exec();
-    if(pnum == 3) view_model->Get_BuildGame3P_Command()->exec();
-    if(pnum == 4) view_model->Get_BuildGame4P_Command()->exec();
+    if(!isBuild) {
+        int pnum = view->Get_Person_Num();
+        if(pnum == 2) view_model->Get_BuildGame2P_Command()->exec();
+        if(pnum == 3) view_model->Get_BuildGame3P_Command()->exec();
+        if(pnum == 4) view_model->Get_BuildGame4P_Command()->exec();
+        isBuild = true;
+    }
     view->show();
 }

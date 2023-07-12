@@ -24,7 +24,7 @@ View::View(QWidget *parent)
     // Value2
     QString value2 = QString("游戏时间: ");
     QSpinBox *spinbox2 = new QSpinBox(&dialog);
-    spinbox2->setSuffix(QString("s"));
+    spinbox2->setSuffix(QString("min"));
     form.addRow(value2, spinbox2);
     // Add Cancel and OK button
     QDialogButtonBox buttonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, Qt::Horizontal, &dialog);
@@ -43,22 +43,28 @@ View::View(QWidget *parent)
     //      初始化倒计时，并赋初值
     gametime = spinbox2->value();
     clocklabel = static_cast<QSharedPointer<ClockLabel_ui>>(ui->clock);
-    clocklabel->setText(QString(gametime) + QString("s"));
+    char GameTime_left[10];
+    sprintf(GameTime_left, "%d", gametime);
+    ui->clock->setText(QString(GameTime_left) + QString(":") + QString("00"));
+
 
     //      初始化分值标签，赋初值，并根据人数显示
     pNum = spinbox1->value();
-    if(pNum >= 1) {
-        scorelabels.push_back(static_cast<QSharedPointer<ScoreLabel_ui>>(ui->scorelabel_1));
-        scorelabels[0]->setText(QString("0"));
-        scorelabels[0]->setVisible(true);
-        ui->playerlabel_1->setVisible(true);
-    }
-    if(pNum >= 2) {
-        scorelabels.push_back(static_cast<QSharedPointer<ScoreLabel_ui>>(ui->scorelabel_2));
-        scorelabels[1]->setText(QString("0"));
-        scorelabels[1]->setVisible(true);
-        ui->playerlabel_2->setVisible(true);
-    }
+    ui->playerlabel_1->setVisible(false);
+    ui->playerlabel_2->setVisible(false);
+    ui->playerlabel_3->setVisible(false);
+    ui->playerlabel_4->setVisible(false);
+
+    scorelabels.push_back(static_cast<QSharedPointer<ScoreLabel_ui>>(ui->scorelabel_1));
+    scorelabels[0]->setText(QString("0"));
+    scorelabels[0]->setVisible(true);
+    ui->playerlabel_1->setVisible(true);
+
+    scorelabels.push_back(static_cast<QSharedPointer<ScoreLabel_ui>>(ui->scorelabel_2));
+    scorelabels[1]->setText(QString("0"));
+    scorelabels[1]->setVisible(true);
+    ui->playerlabel_2->setVisible(true);
+
     if(pNum >= 3) {
         scorelabels.push_back(static_cast<QSharedPointer<ScoreLabel_ui>>(ui->scorelabel_3));
         scorelabels[2]->setText(QString("0"));
