@@ -65,10 +65,10 @@
      </size>
     </property>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>1020</x>
+      <x>1030</x>
       <y>10</y>
       <width>261</width>
       <height>751</height>
@@ -77,6 +77,18 @@
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="ClockLabel_ui" name="clock">
+       <property name="minimumSize">
+        <size>
+         <width>240</width>
+         <height>225</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>225</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <family>Consolas</family>
@@ -85,7 +97,7 @@
         </font>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -93,6 +105,18 @@
       <layout class="QHBoxLayout" name="horizontalLayout_1">
        <item>
         <widget class="QLabel" name="playerlabel_1">
+         <property name="minimumSize">
+          <size>
+           <width>140</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>140</width>
+           <height>50</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Consolas</family>
@@ -107,6 +131,18 @@
        </item>
        <item>
         <widget class="ScoreLabel_ui" name="scorelabel_1">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>50</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Consolas</family>
@@ -119,12 +155,37 @@
          </property>
         </widget>
        </item>
+       <item>
+        <spacer name="horizontalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
       </layout>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QLabel" name="playerlabel_2">
+         <property name="minimumSize">
+          <size>
+           <width>140</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>140</width>
+           <height>50</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Consolas</family>
@@ -139,6 +200,18 @@
        </item>
        <item>
         <widget class="ScoreLabel_ui" name="scorelabel_2">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>50</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Consolas</family>
@@ -151,12 +224,37 @@
          </property>
         </widget>
        </item>
+       <item>
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
       </layout>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <widget class="QLabel" name="playerlabel_3">
+         <property name="minimumSize">
+          <size>
+           <width>140</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>140</width>
+           <height>50</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Consolas</family>
@@ -171,6 +269,18 @@
        </item>
        <item>
         <widget class="ScoreLabel_ui" name="scorelabel_3">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>50</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Consolas</family>
@@ -183,12 +293,37 @@
          </property>
         </widget>
        </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
       </layout>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
         <widget class="QLabel" name="playerlabel_4">
+         <property name="minimumSize">
+          <size>
+           <width>140</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>140</width>
+           <height>50</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Consolas</family>
@@ -203,6 +338,18 @@
        </item>
        <item>
         <widget class="ScoreLabel_ui" name="scorelabel_4">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>50</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Consolas</family>
@@ -215,10 +362,35 @@
          </property>
         </widget>
        </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
       </layout>
      </item>
      <item>
       <widget class="PauseButton_ui" name="pausebutton">
+       <property name="minimumSize">
+        <size>
+         <width>240</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>100</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <family>宋体</family>
@@ -232,6 +404,18 @@
      </item>
      <item>
       <widget class="MusicButton_ui" name="musicbutton">
+       <property name="minimumSize">
+        <size>
+         <width>240</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>100</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <family>宋体</family>

@@ -12,7 +12,7 @@ void Map_ui::set_blocks_colors(const QList<QList<Block>> &blocks)
 
 void Map_ui::paint(QPainter &painter,int width, int height)
 {
-    painter.setPen(Qt::gray);
+    painter.setPen(Qt::black);
     for(int i = 0; i < width; i++) {
         for(int j = 0; j < height; j++) {
             switch(blocks_colors[i][j].GetOccupant())
