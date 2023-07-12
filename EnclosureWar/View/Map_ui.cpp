@@ -5,6 +5,11 @@ Map_ui::Map_ui(QWidget *parent) : QWidget(parent)
     setFixedSize(100, 75);
 }
 
+void Map_ui::set_blocks_colors()
+{
+    this->
+}
+
 void Map_ui::paint(QPainter &painter,int width, int height)
 {
 
