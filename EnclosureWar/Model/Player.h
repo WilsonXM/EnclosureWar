@@ -3,24 +3,15 @@
 
 #include <QPoint>
 #include <QList>
-#include <QObject>
 #include <QSharedPointer>
-#include <vector>
-#include <QSet>
-#include <QLineF>
-#include <QPointF>
-#include <QRectF>
 #include "Common/Common.h"
 
-class Player : public QObject
+class Player
 {
-
-    Q_OBJECT
-
 public:
     Player(int x, int y, Color playercolor)
     {
-        direction_ = QPoint(x,y);
+        location_ = QPoint(x,y);
         playercolor_ = playercolor;
         curmove_ = Move::STOP;
         speed_ = InitSpeed;
@@ -58,7 +49,7 @@ public:
 private:
     Color playercolor_;
 
-    QPoint direction_;
+    QPoint location_;
     Move curmove_;
     bool IfTurn_;
     bool IfOut_;

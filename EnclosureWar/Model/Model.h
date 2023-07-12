@@ -8,9 +8,9 @@
 #include "Common/Block.h"
 #include "Model/Map.h"
 
-class Model : public QObject
+class Model
 {
-    Q_OBJECT
+public:
     Model();
     ~Model() {}//析构
 

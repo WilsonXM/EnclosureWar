@@ -5,14 +5,13 @@ void Map::GameStart(int p)
 {
     //场地初始化
     pn = p;
-    data_block_.clear();
     QList<Block> line;
     for(int i = 1; i <= 100; i++)
     {
         for(int j = 1; j <= 75; j++)
         {
-            Block temp(i, j);
-            line.push_back(temp);
+            Block temp;
+            line.append(temp);
         }
         data_block_.push_back(line);
         line.clear();

@@ -3,8 +3,8 @@
 
 #include <QSharedDataPointer>
 #include <QEnableSharedFromThis>
-#include"./Model/Model.h"
-#include "./Common/Commands.h"
+#include "Model/Model.h"
+#include "Common/Commands.h"
 #include "BuildGame2P_Command.h"
 #include "BuildGame3P_Command.h"
 #include "BuildGame4P_Command.h"

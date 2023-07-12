@@ -3,7 +3,7 @@
 //设置函数
 void Player::SetDirection(const QPoint &&dir) noexcept
 {
-    direction_ = dir;
+    location_ = dir;
 }
 
 void Player::SetMove(const Move &&move) noexcept
@@ -55,7 +55,7 @@ Color Player::GetPlayerColor()  noexcept
 
 QPoint Player::GetDirection() noexcept
 {
-    return direction_;
+    return location_;
 }
 
 Move Player::GetMove()  noexcept
