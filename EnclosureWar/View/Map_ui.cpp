@@ -33,25 +33,25 @@ void Map_ui::paint(QPainter &painter,int width, int height)
                     WHITE: painter.setBrush(QColor("#FFFFFF"));
                     break;
                 default:
-                    painter.setBrush(QColor("#FFFFFF"));
+
                     break;
             }
             switch(blocks_colors[i][j].GetCurColor())
             {
-                case
-                    LIGHTRED: painter.setBrush(QColor("#F08080"));
+                case LIGHTRED:
+                    painter.setBrush(QColor("#F08080"));
                     break;
-                case
-                    LIGHTBLUE: painter.setBrush(QColor("#87CEFA"));
+                case LIGHTBLUE:
+                    painter.setBrush(QColor("#87CEFA"));
                     break;
-                case
-                    LIGHTGREEN: painter.setBrush(QColor("#90EE90"));
+                case LIGHTGREEN:
+                    painter.setBrush(QColor("#90EE90"));
                     break;
-                case
-                    LIGHTPURPLE: painter.setBrush(QColor("#EE82EE"));
+                case LIGHTPURPLE:
+                    painter.setBrush(QColor("#EE82EE"));
                     break;
-                case
-                    WHITE: painter.setBrush(QColor("#FFFFFF"));
+                case WHITE:
+                    //painter.setBrush(QColor("#FFFFFF"));
                     break;
                 default:
                     break;

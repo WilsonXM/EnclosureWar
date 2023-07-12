@@ -107,6 +107,7 @@ void Map::PlayerRebirth(int PlayerNumber)
     data_players_[PlayerNumber - 1].SetSpeed(InitSpeed);
     data_players_[PlayerNumber - 1].SetScore(9);
     data_players_[PlayerNumber - 1].SetOut(false);
+    data_players_[PlayerNumber - 1].SetTurn(false);
 
     data_players_[PlayerNumber - 1].passinglist_.clear();
     data_players_[PlayerNumber - 1].passinglist_.append(data_players_[PlayerNumber - 1].GetDirection());
@@ -182,15 +183,20 @@ void Map::HitPlayer()
 {
     for(int i = 0; i < pn; i++)
     {
+        bool ifkill = false;
+        //检测路径
         for(int ii = 0; ii < data_players_[i].passinglist_.size(); ii++)
-        {
+        {            
             for(int iii = 0; iii < pn; iii++)
             {
                 if(data_players_[iii].GetDirection() == data_players_[i].passinglist_[ii])
                 {
                     PlayerRebirth(i+1);
+                    ifkill = true;
+                    break;
                 }
             }
+            if(ifkill) break;
         }
     }
 }
@@ -597,6 +603,15 @@ void Map::DeletePoint(int PlayerNumber, int x, int y)
 
 void Map::FillToBlock()
 {
+    for(int i = 0; i < 100; i++)
+    {
+        for(int j = 0; j < 75; j++)
+        {
+            data_block_[i][j].Recover();
+        }
+    }
+    SetBound();
+
     for(int i = 0; i < data_players_.size(); i++)
     {
         //占领
@@ -606,19 +621,19 @@ void Map::FillToBlock()
             {
             case 0:
                 data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetOccupied(RED);
-                data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetPassing(RED);
+                //data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetPassing(RED);
                 break;
             case 1:
                 data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetOccupied(BLUE);
-                data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetPassing(BLUE);
+                //data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetPassing(BLUE);
                 break;
             case 2:
                 data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetOccupied(GREEN);
-                data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetPassing(GREEN);
+                //data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetPassing(GREEN);
                 break;
             case 3:
                 data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetOccupied(PURPLE);
-                data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetPassing(PURPLE);
+                //data_block_[data_players_[i].occupantlist_[ii].x()][data_players_[i].occupantlist_[ii].y()].SetPassing(PURPLE);
                 break;
             default:
                 break;
