@@ -1,5 +1,7 @@
 #include "App.h"
 
+bool IsBuild = false;
+
 App::App()
 {
     model = QSharedPointer<Model>::create();
@@ -45,9 +47,12 @@ App::App()
 
 void App::run()
 {
-    int pnum = view->Get_Person_Num();
-    if(pnum == 2) view_model->Get_BuildGame2P_Command()->exec();
-    if(pnum == 3) view_model->Get_BuildGame3P_Command()->exec();
-    if(pnum == 4) view_model->Get_BuildGame4P_Command()->exec();
+    if(!IsBuild)
+    {
+        int pnum = view->Get_Person_Num();
+        if(pnum == 2) view_model->Get_BuildGame2P_Command()->exec();
+        if(pnum == 3) view_model->Get_BuildGame3P_Command()->exec();
+        if(pnum == 4) view_model->Get_BuildGame4P_Command()->exec();
+    }
     view->show();
 }

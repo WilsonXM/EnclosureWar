@@ -7,6 +7,7 @@ void Model::BuildGame(const int &&player) noexcept
 {
     int pn = player;
     map->GameStart(pn);
+    //Move();
 }
 
 void Model::PlayerMove(const int &&playernum, const enum Move &&playermove) noexcept
@@ -18,6 +19,8 @@ void Model::PlayerMove(const int &&playernum, const enum Move &&playermove) noex
 
 void Model::Move() noexcept
 {
+    //步进
+    map->PlayerGo();
     //撞墙
     map->PlayerHitSide();
     //撞人
