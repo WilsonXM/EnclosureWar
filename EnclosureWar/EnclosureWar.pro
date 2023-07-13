@@ -13,7 +13,7 @@ SOURCES += \
     Common/Common.cpp \
     Common/Block.cpp \
     Model/Model.cpp \
-    Model/Player.cpp \
+    Common/Player.cpp \
     View/ClockLabel_ui.cpp \
     View/Map_ui.cpp \
     View/MusicButton_ui.cpp \
@@ -30,7 +30,7 @@ HEADERS += \
     Common/Common.h \
     Common/Block.h \
     Model/Model.h \
-    Model/Player.h \
+    Common/Player.h \
     View/ClockLabel_ui.h \
     View/Map_ui.h \
     View/MusicButton_ui.h \

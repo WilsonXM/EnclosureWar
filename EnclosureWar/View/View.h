@@ -14,6 +14,7 @@
 #include "View/MusicButton_ui.h"
 #include "View/PauseButton_ui.h"
 #include "View/ClockLabel_ui.h"
+#include "Common/Player.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class View; }
@@ -58,6 +59,7 @@ public:
 
     // 获取blocks信息的方法
     void set_get_blocks_colors(const std::function<QList<QList<Block>>(void)>);
+    void set_get_players_scores(const std::function<QList<Player>(void)>);
 
 
     // 获取/设置游戏时间
@@ -136,10 +138,11 @@ private:
 
     // 获取所有blocks的染色信息，获取成绩
     std::function<QList<QList<Block>>(void)> get_blocks_colors;
-    //std::function<QList<>>
+    std::function<QList<Player>(void)> get_players_scores;
 
     // 定时器
     QTimer *timer;
     GameState game_state; // 游戏状态
+    QList<Player> players_scores;
 };
 #endif // VIEW_H

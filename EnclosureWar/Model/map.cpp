@@ -152,7 +152,6 @@ void Map::PlayerGo()
                 break;
             }
         }
-        else;
     }
 }
 
@@ -164,7 +163,6 @@ void Map::PlayerHitSide()
         {
             PlayerRebirth(i+1);
         }
-        else;
     }
 }
 

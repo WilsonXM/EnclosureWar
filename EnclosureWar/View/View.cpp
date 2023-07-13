@@ -190,6 +190,11 @@ void View::set_get_blocks_colors(const std::function<QList<QList<Block>>(void)> 
     get_blocks_colors = func;
 }
 
+void View::set_get_players_scores(const std::function<QList<Player>(void)> func)
+{
+    get_players_scores = func;
+}
+
 void View::keyPressEvent(QKeyEvent *event)
 {
     keys_pressed += Qt::Key(event->key());
@@ -210,6 +215,9 @@ void View::paintEvent(QPaintEvent *)
     // 绘制地图
     map->set_blocks_colors(get_blocks_colors());
     map->paint(painter, 100, 75);
+
+    // 更新人物领地数量
+    players_scores = get_players_scores();
 
     update();
 
@@ -385,6 +393,21 @@ void View::move()
         ui->clock->setText( QString(minute) + QString(" : ") + QString(second));
         if(minutes <= 0 && seconds <= 0)
             emit pause_signal(TIMEOUT);
+    }
+
+    // 实时显示领地数量
+    char playerscore1[10], playerscore2[10], playerscore3[10], playerscore4[10];
+    sprintf(playerscore1, "%d", players_scores[0].GetScore());
+    sprintf(playerscore2, "%d", players_scores[1].GetScore());
+    ui->scorelabel_1->setText(QString(playerscore1));
+    ui->scorelabel_2->setText(QString(playerscore2));
+    if(pNum >= 3) {
+        sprintf(playerscore3, "%d", players_scores[2].GetScore());
+        ui->scorelabel_3->setText(QString(playerscore3));
+    }
+    if(pNum == 4) {
+        sprintf(playerscore4, "%d", players_scores[3].GetScore());
+        ui->scorelabel_4->setText(QString(playerscore4));
     }
 
     update();

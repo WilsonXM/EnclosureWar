@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QPointer>
 #include <QMessageBox>
-#include "Model/Player.h"
+#include "Common/Player.h"
 #include "Common/Block.h"
 #include "Model/Map.h"
 
