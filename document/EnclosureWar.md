@@ -124,7 +124,15 @@
 
 ##### 4.1.4 View
 
-​		处理界面反馈逻辑（键盘事件，定时器），以及绘制界面功能。用`command->exec()`的形式在接入Model&View Model层的功能。如果需要访问Model层的数据，在类内定义对应对应的仿函数。如`std::function<QPoint(void)> get_ice_pos`是获取冰人位置的仿函数，在App层再利用lambda表达式，绑定到Model & View Model层提供的访问接口上。
+- 初始化UI界面
+
+  
+
+- 处理界面反馈逻辑
+
+   界面反馈逻辑包括键盘事件、绘图事件以及计时器事件，其中，键盘事件主要处理
+
+- 用`command->exec()`的形式接入Model&View Model层的功能。如果需要访问Model层的数据，在类内定义对应对应的仿函数。如`std::function<QList<QList<Block>>(void)> get_blocks_colors  `是获取冰人位置的仿函数，在App层再利用lambda表达式，绑定到Model & View Model层提供的访问接口上。
 
 ##### 4.1.5 App
 
