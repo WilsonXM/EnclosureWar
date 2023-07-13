@@ -1,4 +1,4 @@
-#include "Model/Player.h"
+#include "Common/Player.h"
 
 //设置函数
 void Player::SetDirection(const QPoint &&dir) noexcept
