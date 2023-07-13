@@ -4,13 +4,18 @@
 #include <QDialog>
 #include <QFormLayout>
 #include <QSpinBox>
+#include <QProcess>
+#include <QMessageBox>
+#include <QInputDialog>
+#include <QDir>
 #include <QDialogButtonBox>
+#include <QDebug>
 
 View::View(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::View)
     , timer(new QTimer(this)) // 定时器
-    , game_status(PLAYING)
+    , game_state(PLAYING)
 {
     ui->setupUi(this);
 
@@ -34,7 +39,7 @@ View::View(QWidget *parent)
 
     // Process when Rejected button is clicked
     if (dialog.exec() == QDialog::Rejected)
-        QTimer::singleShot(0, qApp, SLOT(quit()));
+        this->close();
 
     // 初始化共享指针
     pausebutton = static_cast<QSharedPointer<PauseButton_ui>>(ui->pausebutton);
@@ -51,8 +56,7 @@ View::View(QWidget *parent)
 
     //      初始化分值标签，赋初值，并根据人数显示
     pNum = spinbox1->value();
-    ui->playerlabel_1->setVisible(false);
-    ui->playerlabel_2->setVisible(false);
+    if(pNum <= 1) this->close();
     ui->playerlabel_3->setVisible(false);
     ui->playerlabel_4->setVisible(false);
 
@@ -82,8 +86,13 @@ View::View(QWidget *parent)
     // 初始化共享指针map
     map = static_cast<QSharedPointer<Map_ui>>(ui->map_ui);
 
+    // 开始时钟
     timer->start(GCD);
+    setFocusPolicy(Qt::StrongFocus);
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
+
+    // 连接暂停信号
+    connect(this, &View::pause_signal, this, &View::react_game_status_change);
 
     this->setFixedSize(1300, 800);
 }
@@ -184,9 +193,9 @@ void View::set_get_blocks_colors(const std::function<QList<QList<Block>>(void)> 
 void View::keyPressEvent(QKeyEvent *event)
 {
     keys_pressed += Qt::Key(event->key());
-    /* 1.游戏暂停 */
-    //if (keys_pressed.contains(Qt::Key_Space))
-        //emit pause_signal(PAUSE);
+
+    if (keys_pressed.contains(Qt::Key_Space))
+        emit pause_signal(PAUSE);
 }
 void View::keyReleaseEvent(QKeyEvent *event)
 {
@@ -204,6 +213,87 @@ void View::paintEvent(QPaintEvent *)
 
     update();
 
+}
+
+void View::react_game_status_change(const GameState &status) // 接收游戏状态改变的信号
+{
+    if(status == TIMEOUT) {
+        // 断开连接函数
+        disconnect(timer, SIGNAL(timeout()), this, SLOT(move()));
+
+        // 创建弹窗
+        auto msg_box = QSharedPointer<QMessageBox>::create();
+        msg_box->setIcon(QMessageBox::Information);
+        // tr是为了显示中文
+        msg_box->setWindowTitle(tr("提示")); // 设置弹窗标题
+        msg_box->setText(tr("倒计时结束，是否重新游戏？")); // 设置弹窗信息
+        msg_box->setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+        msg_box->setDefaultButton(QMessageBox::Yes);
+        msg_box->button(QMessageBox::Yes)->setText(tr("重启")); // 设置弹窗按钮的文字
+        msg_box->button(QMessageBox::No)->setText(tr("退出"));
+
+        msg_box->show();
+        // click_result判断用户点击了什么按钮
+        auto click_result = msg_box->exec();
+        if (click_result == QMessageBox::Yes)
+        {
+            QString program = QApplication::applicationFilePath();
+            QStringList arguments = QApplication::arguments();
+            QString workingDirectory = QDir::currentPath();
+            QProcess::startDetached(program, arguments, workingDirectory);
+            QApplication::exit();
+        }
+        else if (click_result == QMessageBox::No)
+        {
+            this->close();
+        }
+    } else if (status == PAUSE) {
+        if (game_state == PAUSE)
+        { // 正在暂停
+            connect(timer, SIGNAL(timeout()), this, SLOT(move())); // 重连计时器
+            game_state = PLAYING; // 修改游戏状态
+        }
+        else if (game_state == PLAYING) {
+            // 清除所有按键
+            keys_pressed.clear();
+
+            // 断开计时器连接
+            disconnect(timer, SIGNAL(timeout()), this, SLOT(move()));
+            game_state = PAUSE;
+
+            // 创建弹窗
+            auto msg_box = QSharedPointer<QMessageBox>::create();
+            msg_box->setIcon(QMessageBox::Information);
+            // tr是为了显示中文
+            msg_box->setWindowTitle(tr("提示")); // 设置弹窗标题
+            msg_box->setText(tr("游戏暂停")); // 设置弹窗信息
+                msg_box->setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Save);
+            msg_box->setDefaultButton(QMessageBox::Save);
+            msg_box->button(QMessageBox::Yes)->setText(tr("重启游戏")); // 设置弹窗按钮的文字
+            msg_box->button(QMessageBox::No)->setText(tr("退出"));
+            msg_box->button(QMessageBox::Save)->setText(tr("继续游戏"));
+
+            msg_box->show();
+            // click_result判断用户点击了什么按钮
+            auto click_result = msg_box->exec();
+            if (click_result == QMessageBox::Yes)
+            {
+                QString program = QApplication::applicationFilePath();
+                QStringList arguments = QApplication::arguments();
+                QString workingDirectory = QDir::currentPath();
+                QProcess::startDetached(program, arguments, workingDirectory);
+                QApplication::exit();
+            }
+            else if (click_result == QMessageBox::No)
+            {
+                this->close();
+            }
+            else if (click_result == QMessageBox::Save)
+            { // 继续游戏
+                emit pause_signal(PAUSE);
+            }
+        }
+    }
 }
 
 void View::move()
@@ -275,11 +365,39 @@ void View::move()
     {
         player4_down_command->exec();
     }
+    if (keys_pressed.contains(Qt::Key_Return))
+    {
+        emit pause_signal(PAUSE);
+    }
 
     move_command->exec();
 
     // 实现倒计时
     single_sec++;
+    if(single_sec == 20) {
+        single_sec = 0;
+        total_sec--;
+        char minute[3], second[3];
+        int seconds = total_sec % 60;
+        int minutes = total_sec / 60;
+        sprintf(second, "%d", seconds);
+        sprintf(minute, "%d", minutes);
+        ui->clock->setText( QString(minute) + QString(" : ") + QString(second));
+        if(minutes <= 0 && seconds <= 0)
+            emit pause_signal(TIMEOUT);
+    }
 
     update();
 }
+
+void View::on_pausebutton_clicked()
+{
+    emit pause_signal(PAUSE);
+}
+
+
+void View::on_musicbutton_clicked()
+{
+    emit music_signal(STOP);
+}
+

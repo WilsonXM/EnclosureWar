@@ -4,6 +4,7 @@
 
 #include <QObject>
 #include <QSharedPointer>
+#include <QSoundEffect>
 #include "View/View.h"
 #include "ViewModel/ViewModel.h"
 #include "Model/Model.h"

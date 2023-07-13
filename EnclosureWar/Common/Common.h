@@ -9,6 +9,12 @@ enum GameState
     RESET           // 重新开始
 };
 
+enum MusicState
+{
+    STOP = 0,
+    PLAY
+};
+
 enum Color
 {
     WHITE = 0,
