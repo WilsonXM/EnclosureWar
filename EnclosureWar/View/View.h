@@ -64,19 +64,25 @@ public:
     int get_GameTime() { return gametime; }
     void set_GameTime(const int time) { gametime = time; }
 
-    bool pause_signal = false;
-
 protected:
     void keyPressEvent(QKeyEvent *event) override; // 键盘按下事件
     void keyReleaseEvent(QKeyEvent *event) override; // 键盘松开事件
     void paintEvent(QPaintEvent *) override; // 绘制事件，通过update()函数激活
     //void mousePressEvent(QMouseEvent *event) override; // 鼠标点击时间
 
+public slots: // 槽函数
+    void react_game_status_change(const GameState &status); // 接收游戏状态改变的信号
+
 signals:
-    //void pause_signal(const GameState &status); // 发送暂停信号
+    void pause_signal(const GameState &status); // 发送暂停信号
+    void music_signal(const MusicState &status);
 
 private slots:
     void move(); // 每隔一段时间就触发move_command
+
+    void on_pausebutton_clicked();
+
+    void on_musicbutton_clicked();
 
 private:
     Ui::View *ui;
@@ -128,11 +134,12 @@ private:
     QSharedPointer<Commands> player4_left_command;   // 玩家4左移指令
     QSharedPointer<Commands> player4_right_command;  // 玩家4右移指令
 
-    // 获取所有blocks的染色信息
+    // 获取所有blocks的染色信息，获取成绩
     std::function<QList<QList<Block>>(void)> get_blocks_colors;
+    //std::function<QList<>>
 
     // 定时器
     QTimer *timer;
-    GameState game_status; // 游戏状态
+    GameState game_state; // 游戏状态
 };
 #endif // VIEW_H

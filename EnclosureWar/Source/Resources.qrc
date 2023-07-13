@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/music">
+        <file>Bach.wav</file>
+    </qresource>
+    <qresource prefix="/image"/>
+</RCC>
