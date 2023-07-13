@@ -18,8 +18,14 @@ View::View(QWidget *parent)
     , game_state(PLAYING)
 {
     ui->setupUi(this);
-
+    this->setWindowTitle(QString("EnclosureWar"));
+    this->setWindowIcon(QIcon(":/image/icon.ico"));
+    //this->setWindowFlags(Qt::FramelessWindowHint);
+    //this->setAttribute(Qt::WA_TranslucentBackground);
+    this->setStyleSheet("#View{border-image:url(:/image/background.jpg)}");
     QDialog dialog(this);
+    dialog.setWindowFlags(Qt::Dialog | Qt::WindowCloseButtonHint);
+
     QFormLayout form(&dialog);
     form.addRow(new QLabel("游戏设置"));
     // Value1
@@ -34,6 +40,8 @@ View::View(QWidget *parent)
     // Add Cancel and OK button
     QDialogButtonBox buttonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, Qt::Horizontal, &dialog);
     form.addRow(&buttonBox);
+    dialog.resize(QSize(400, 150));
+
     connect(&buttonBox, SIGNAL(accepted()), &dialog, SLOT(accept()));
     connect(&buttonBox, SIGNAL(rejected()), &dialog, SLOT(reject()));
 
@@ -90,6 +98,12 @@ View::View(QWidget *parent)
     timer->start(GCD);
     setFocusPolicy(Qt::StrongFocus);
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
+    // 开始music
+    music = new QSoundEffect();
+    music->setSource(QUrl::fromLocalFile(":/music/bgm.wav"));
+    music->setLoopCount(QSoundEffect::Infinite);  //设置无限循环
+    music->setVolume(0.5f);  //设置音量，在0到1之间
+    music->play();
 
     // 连接暂停信号
     connect(this, &View::pause_signal, this, &View::react_game_status_change);
@@ -226,6 +240,7 @@ void View::paintEvent(QPaintEvent *)
 void View::react_game_status_change(const GameState &status) // 接收游戏状态改变的信号
 {
     if(status == TIMEOUT) {
+        music->stop();
         // 断开连接函数
         disconnect(timer, SIGNAL(timeout()), this, SLOT(move()));
 
@@ -260,6 +275,7 @@ void View::react_game_status_change(const GameState &status) // 接收游戏状�
         { // 正在暂停
             connect(timer, SIGNAL(timeout()), this, SLOT(move())); // 重连计时器
             game_state = PLAYING; // 修改游戏状态
+            music->play();
         }
         else if (game_state == PLAYING) {
             // 清除所有按键
@@ -268,6 +284,7 @@ void View::react_game_status_change(const GameState &status) // 接收游戏状�
             // 断开计时器连接
             disconnect(timer, SIGNAL(timeout()), this, SLOT(move()));
             game_state = PAUSE;
+            music->stop();
 
             // 创建弹窗
             auto msg_box = QSharedPointer<QMessageBox>::create();
@@ -421,6 +438,12 @@ void View::on_pausebutton_clicked()
 
 void View::on_musicbutton_clicked()
 {
-    emit music_signal(STOP);
+    if(music_state == false) {
+        music->stop();
+        music_state = true;
+    }else {
+        music->play();
+        music_state = false;
+    }
 }
 

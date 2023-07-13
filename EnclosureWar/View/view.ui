@@ -30,6 +30,9 @@
   <property name="windowTitle">
    <string>View</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="minimumSize">
     <size>
@@ -71,23 +74,102 @@
       <x>1030</x>
       <y>10</y>
       <width>261</width>
-      <height>751</height>
+      <height>769</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="ClockLabel_ui" name="clock">
+      <widget class="QScrollArea" name="scrollArea">
        <property name="minimumSize">
         <size>
          <width>240</width>
-         <height>225</height>
+         <height>300</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
          <width>240</width>
-         <height>225</height>
+         <height>300</height>
         </size>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="widgetResizable">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="scrollAreaWidgetContents">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>300</width>
+          <height>800</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>300</width>
+          <height>800</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>300</width>
+          <height>800</height>
+         </size>
+        </property>
+        <widget class="QLabel" name="help">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>40</y>
+           <width>300</width>
+           <height>800</height>
+          </rect>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>800</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>800</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;#键位设置：&lt;/p&gt;&lt;p&gt;Player1：AWDS&lt;/p&gt;&lt;p&gt;Player2：←↑→↓&lt;/p&gt;&lt;p&gt;Player3：1532&lt;/p&gt;&lt;p&gt;Player4：JILK&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;#得分： &lt;/p&gt;&lt;p&gt;Player从自己的领地出发，当&lt;/p&gt;&lt;p&gt;再次回到自己的领地时，会将&lt;/p&gt;&lt;p&gt;路径所围的格子涂成自己的颜&lt;/p&gt;&lt;p&gt;色，玩家得分为自己所属颜色&lt;/p&gt;&lt;p&gt;作图成的格子数。倒计时结束&lt;/p&gt;&lt;p&gt;时，得分高的Player获胜。&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;#击杀： &lt;/p&gt;&lt;p&gt;当Player操控的角色撞击到另&lt;/p&gt;&lt;p&gt;一个Player的路径上时，会击&lt;/p&gt;&lt;p&gt;杀另一玩家，被击杀的玩家的&lt;/p&gt;&lt;p&gt;领地会消失。注意撞上自己的&lt;/p&gt;&lt;p&gt;路径会自杀哦。&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="ClockLabel_ui" name="clock">
+       <property name="minimumSize">
+        <size>
+         <width>240</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="palette">
+        <palette>
+         <active/>
+         <inactive/>
+         <disabled/>
+        </palette>
        </property>
        <property name="font">
         <font>
@@ -121,6 +203,13 @@
            <height>50</height>
           </size>
          </property>
+         <property name="palette">
+          <palette>
+           <active/>
+           <inactive/>
+           <disabled/>
+          </palette>
+         </property>
          <property name="font">
           <font>
            <family>Consolas</family>
@@ -146,6 +235,13 @@
            <width>100</width>
            <height>50</height>
           </size>
+         </property>
+         <property name="palette">
+          <palette>
+           <active/>
+           <inactive/>
+           <disabled/>
+          </palette>
          </property>
          <property name="font">
           <font>
@@ -190,6 +286,13 @@
            <height>50</height>
           </size>
          </property>
+         <property name="palette">
+          <palette>
+           <active/>
+           <inactive/>
+           <disabled/>
+          </palette>
+         </property>
          <property name="font">
           <font>
            <family>Consolas</family>
@@ -215,6 +318,13 @@
            <width>100</width>
            <height>50</height>
           </size>
+         </property>
+         <property name="palette">
+          <palette>
+           <active/>
+           <inactive/>
+           <disabled/>
+          </palette>
          </property>
          <property name="font">
           <font>
@@ -259,6 +369,13 @@
            <height>50</height>
           </size>
          </property>
+         <property name="palette">
+          <palette>
+           <active/>
+           <inactive/>
+           <disabled/>
+          </palette>
+         </property>
          <property name="font">
           <font>
            <family>Consolas</family>
@@ -284,6 +401,13 @@
            <width>100</width>
            <height>50</height>
           </size>
+         </property>
+         <property name="palette">
+          <palette>
+           <active/>
+           <inactive/>
+           <disabled/>
+          </palette>
          </property>
          <property name="font">
           <font>
@@ -328,6 +452,13 @@
            <height>50</height>
           </size>
          </property>
+         <property name="palette">
+          <palette>
+           <active/>
+           <inactive/>
+           <disabled/>
+          </palette>
+         </property>
          <property name="font">
           <font>
            <family>Consolas</family>
@@ -353,6 +484,13 @@
            <width>100</width>
            <height>50</height>
           </size>
+         </property>
+         <property name="palette">
+          <palette>
+           <active/>
+           <inactive/>
+           <disabled/>
+          </palette>
          </property>
          <property name="font">
           <font>
@@ -382,54 +520,58 @@
       </layout>
      </item>
      <item>
-      <widget class="PauseButton_ui" name="pausebutton">
-       <property name="minimumSize">
-        <size>
-         <width>240</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>240</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>宋体</family>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>暂停</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="MusicButton_ui" name="musicbutton">
-       <property name="minimumSize">
-        <size>
-         <width>240</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>240</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>宋体</family>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>音乐</string>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="MusicButton_ui" name="musicbutton">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>宋体</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>音乐</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="PauseButton_ui" name="pausebutton">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>宋体</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>暂停</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>

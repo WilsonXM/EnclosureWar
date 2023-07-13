@@ -1,6 +1,9 @@
 <RCC>
     <qresource prefix="/music">
-        <file>Bach.wav</file>
+        <file>bgm.wav</file>
     </qresource>
-    <qresource prefix="/image"/>
+    <qresource prefix="/image">
+        <file>icon.ico</file>
+        <file>background.jpg</file>
+    </qresource>
 </RCC>

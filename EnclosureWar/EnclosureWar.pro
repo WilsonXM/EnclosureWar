@@ -1,6 +1,7 @@
 QT       += core gui
 QT       += multimedia
 CONFIG   += resources_big
+#RC_ICONS  = icon.ico
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
@@ -42,7 +43,7 @@ HEADERS += \
     ViewModel/BuildGame2P_Command.h \
     ViewModel/BuildGame3P_Command.h \
     ViewModel/BuildGame4P_Command.h \
-    ViewModel/Move_Command.h \
+    ViewModel/BlockChange_Command.h \
     ViewModel/Player1_Left_Command.h \
     ViewModel/Player1_Right_Command.h \
     ViewModel/Player1_Up_Command.h \
