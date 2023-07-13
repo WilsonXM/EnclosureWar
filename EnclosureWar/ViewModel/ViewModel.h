@@ -8,7 +8,7 @@
 #include "BuildGame2P_Command.h"
 #include "BuildGame3P_Command.h"
 #include "BuildGame4P_Command.h"
-#include "Move_Command.h"
+#include "BlockChange_Command.h"
 #include "Player1_Down_Command.h"
 #include "Player1_Left_Command.h"
 #include "Player1_Right_Command.h"
@@ -39,7 +39,7 @@ public: // 执行函数
     void Exec_BuildGame2P_Command();
     void Exec_BuildGame3P_Command();
     void Exec_BuildGame4P_Command();
-    void Exec_Move_Command();
+    void Exec_BlockChange_Command();
 
     void Exec_Player1_Down_Command();
     void Exec_Player1_Left_Command();
@@ -68,7 +68,7 @@ public: // 获取命令指针
     QSharedPointer<Commands> Get_BuildGame2P_Command();
     QSharedPointer<Commands> Get_BuildGame3P_Command();
     QSharedPointer<Commands> Get_BuildGame4P_Command();
-    QSharedPointer<Commands> Get_Move_Command();
+    QSharedPointer<Commands> Get_BlockChange_Command();
 
     QSharedPointer<Commands> Get_Player1_Down_Command();
     QSharedPointer<Commands> Get_Player1_Left_Command();
@@ -98,7 +98,7 @@ private:
     QSharedPointer<BuildGame2P_Command<ViewModel>> buildgame2p_command_;
     QSharedPointer<BuildGame3P_Command<ViewModel>> buildgame3p_command_;
     QSharedPointer<BuildGame4P_Command<ViewModel>> buildgame4p_command_;
-    QSharedPointer<Move_Command<ViewModel>> move_command_;
+    QSharedPointer<BlockChange_Command<ViewModel>> blockchange_command_;
 
     QSharedPointer<Player1_Down_Command<ViewModel>> player1_down_command_;
     QSharedPointer<Player1_Left_Command<ViewModel>> player1_left_command_;

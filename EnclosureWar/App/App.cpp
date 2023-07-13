@@ -14,7 +14,7 @@ App::App()
     view->set_build_3p_command(view_model->Get_BuildGame3P_Command());
     view->set_build_4p_command(view_model->Get_BuildGame4P_Command());
 
-    view->set_move_command(view_model->Get_Move_Command());
+    view->set_move_command(view_model->Get_BlockChange_Command());
 
     view->set_player1_down_command(view_model->Get_Player1_Down_Command());
     view->set_player1_left_command(view_model->Get_Player1_Left_Command());
@@ -44,8 +44,6 @@ App::App()
         return view_model->GetPlayers();
     });
 
-    // 绑定信号与槽
-    //QObject::connect(view.data(), SIGNAL(music_signal), this, )
 }
 
 void App::run()
@@ -58,13 +56,6 @@ void App::run()
         if(pnum == 4) view_model->Get_BuildGame4P_Command()->exec();
         IsBuild = true;
     }
-
-    // music
-    QSoundEffect *music = new QSoundEffect();
-    music->setSource(QUrl::fromLocalFile(":/music/Bach.wav"));
-    music->setLoopCount(QSoundEffect::Infinite);  //设置无限循环
-    music->setVolume(0.5f);  //设置音量，在0到1之间
-    music->play();
 
     view->show();
 }

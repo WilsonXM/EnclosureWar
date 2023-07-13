@@ -7,6 +7,7 @@
 #include <QTimer>
 #include <QList>
 #include <QSet>
+#include <QSoundEffect>
 #include "Common/Commands.h"
 #include "View/Map_ui.h"
 #include "Common/Common.h"
@@ -104,6 +105,8 @@ private:
 
     QSharedPointer<PauseButton_ui> pausebutton;
     QSharedPointer<MusicButton_ui> musicbutton;
+    QSoundEffect *music;
+    bool music_state = false;
 
     QSharedPointer<ClockLabel_ui> clocklabel;
 

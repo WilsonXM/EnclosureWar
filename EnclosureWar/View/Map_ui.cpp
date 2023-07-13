@@ -12,7 +12,7 @@ void Map_ui::set_blocks_colors(const QList<QList<Block>> &blocks)
 
 void Map_ui::paint(QPainter &painter,int width, int height)
 {
-    painter.setPen(Qt::black);
+    painter.setPen(Qt::white);
     for(int i = 0; i < width; i++) {
         for(int j = 0; j < height; j++) {
             switch(blocks_colors[i][j].GetOccupant())
@@ -20,17 +20,17 @@ void Map_ui::paint(QPainter &painter,int width, int height)
                 case RED:
                     painter.setBrush(QColor("#FF0000"));
                     break;
-                case
-                    BLUE: painter.setBrush(QColor("#0000FF"));
+                case BLUE:
+                    painter.setBrush(QColor("#0000FF"));
                     break;
-                case
-                    GREEN: painter.setBrush(QColor("#008000"));
+                case GREEN:
+                    painter.setBrush(QColor("#008000"));
                     break;
-                case
-                    PURPLE: painter.setBrush(QColor("#800080"));
+                case PURPLE:
+                    painter.setBrush(QColor("#800080"));
                     break;
-                case
-                    WHITE: painter.setBrush(QColor("#FFFFFF"));
+                case WHITE:
+                    painter.setBrush(QColor("#FFFFFF"));
                     break;
                 default:
 

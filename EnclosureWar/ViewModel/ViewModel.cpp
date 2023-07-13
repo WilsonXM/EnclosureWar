@@ -12,7 +12,7 @@ void ViewModel::Exec_BuildGame3P_Command() { m_model->BuildGame(3); }
 
 void ViewModel::Exec_BuildGame4P_Command() { m_model->BuildGame(4); }
 
-void ViewModel::Exec_Move_Command() { m_model->Move(); }
+void ViewModel::Exec_BlockChange_Command() { m_model->Move(); }
 
 void ViewModel::Exec_Player1_Down_Command() { m_model->PlayerMove(1, Move::DOWN); }
 
@@ -51,7 +51,7 @@ void ViewModel::Setup_Commands(QSharedPointer<ViewModel> &vm)
     buildgame2p_command_ = QSharedPointer<BuildGame2P_Command<ViewModel>>::create(vm);
     buildgame3p_command_ = QSharedPointer<BuildGame3P_Command<ViewModel>>::create(vm);
     buildgame4p_command_ = QSharedPointer<BuildGame4P_Command<ViewModel>>::create(vm);
-    move_command_ = QSharedPointer<Move_Command<ViewModel>>::create(vm);
+    blockchange_command_ = QSharedPointer<BlockChange_Command<ViewModel>>::create(vm);
 
     player1_down_command_ = QSharedPointer<Player1_Down_Command<ViewModel>>::create(vm);
     player1_left_command_ = QSharedPointer<Player1_Left_Command<ViewModel>>::create(vm);
@@ -80,7 +80,7 @@ QSharedPointer<Commands> ViewModel::Get_BuildGame3P_Command() { return buildgame
 
 QSharedPointer<Commands> ViewModel::Get_BuildGame4P_Command() { return buildgame4p_command_; }
 
-QSharedPointer<Commands> ViewModel::Get_Move_Command() { return move_command_; }
+QSharedPointer<Commands> ViewModel::Get_BlockChange_Command() { return blockchange_command_; }
 
 QSharedPointer<Commands> ViewModel::Get_Player1_Down_Command() { return player1_down_command_; }
 
