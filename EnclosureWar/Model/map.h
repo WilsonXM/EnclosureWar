@@ -7,7 +7,7 @@
 #include <QMessageBox>
 #include "Common/Common.h"
 #include "Common/Block.h"
-#include "Model/Player.h"
+#include "Common/Player.h"
 
 class Map
 {

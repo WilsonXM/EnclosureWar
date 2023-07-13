@@ -40,9 +40,12 @@ App::App()
     view->set_get_blocks_colors([&](){
         return view_model->GetBlocks();
     });
+    view->set_get_players_scores([&](){
+        return view_model->GetPlayers();
+    });
 
     // 绑定信号与槽
-    QObject::connect(view.data(), SIGNAL(music_signal), this, )
+    //QObject::connect(view.data(), SIGNAL(music_signal), this, )
 }
 
 void App::run()
